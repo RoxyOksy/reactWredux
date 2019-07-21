@@ -1,0 +1,9 @@
+button{
+  display: block;
+  width: 120px;
+  height: 30px;
+}
+
+button:focus{
+  outline: none;
+}

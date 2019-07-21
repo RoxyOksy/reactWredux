@@ -1,0 +1,16 @@
+.addItem {
+  color: yellowgreen;
+  display: inline;
+  border: 2px solid yellowgreen;
+  border-radius: 15px;
+  background-color: white;
+  width: 30px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.addItem:active {
+  background-color: yellowgreen;
+  color: white;
+  user-select: none;
+}

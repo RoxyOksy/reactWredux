@@ -1,0 +1,7 @@
+.notVisible, input{
+  display: none;
+}
+
+.isVisible{
+  display: inline;
+}
