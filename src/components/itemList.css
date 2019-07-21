@@ -1,0 +1,9 @@
+.deleteItem{
+  color: red;
+  display: inline;
+  border: 1px solid red;
+  border-radius: 3px;
+  background-color: white;
+  margin-left: 15px;
+}
+

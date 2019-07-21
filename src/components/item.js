@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import FileUploader from "./fileUploader";
 import ImagePreview from "./imagePreview";
+import './item.css';
 
 export default class Item extends Component {
 
@@ -30,7 +31,7 @@ export default class Item extends Component {
     const {image, inputVisibility, previewVisibility} = this.state;
 
     return(
-      <div>
+      <div className="item">
         <FileUploader vis={inputVisibility} onSelect={this.loadPreview}/>
         <ImagePreview vis={previewVisibility} src={image} onDelete={this.delete}/>
       </div>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './app.css';
-import Item from "./item";
+import ItemList from "./itemList";
 import AddItem from "./addItem";
+import './app.css';
 
 export default class App extends Component{
 
@@ -21,15 +21,22 @@ export default class App extends Component{
     });
   };
 
+  deleteItem = (id) => {
+    this.setState(({items}) => {
+      const index = items.findIndex((el) => el.id === id);
+      const newState = [...items.slice(0, index), ...items.slice(index + 1)];
+
+      return {
+        items: newState
+      }
+    });
+  };
+
   render() {
-    console.log(this.state)
     return (
       <div className="App">
         <AddItem onAddItem={this.addItem}/>
-        {this.state.items.map((item) => (
-          <Item key={item.id} id={item.id}/>
-        ))
-        }
+        <ItemList items={this.state.items} onDeleteItem={this.deleteItem}/>
       </div>
     );
   }
