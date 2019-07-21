@@ -3,9 +3,9 @@ import './fileUploader.css';
 
 export default class FileUploader extends Component {
 
-  onClick = () => {
-    document.getElementById('getFile').click();
-  };
+//   onClick = () => {
+//     document.getElementById('props.id').click();
+//   };
 
   handleChangeFile = (event) => {
     const reader = new FileReader();
@@ -17,10 +17,11 @@ export default class FileUploader extends Component {
 
   render(){
     let classNameBut = this.props.vis ? 'isVisible' : 'notVisible';
+
     return(
       <div>
-        <button className={classNameBut} onClick={this.onClick}>Open</button>
-        <input type="file" accept=".png, .jpg, .jpeg" id="getFile"
+        {/*<button  onClick={this.onClick} tabIndex='5'>Open}</button>*/}
+        <input type="file" accept=".png, .jpg, .jpeg" id={this.props.id} className={classNameBut}
                onChange={this.handleChangeFile} />
       </div>
     )

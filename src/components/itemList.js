@@ -7,7 +7,7 @@ const ItemList = ({items, onDeleteItem}) => {
   const elements = items.map((item) => {
     return (
       <li key={item.id} id={ item.id }>
-        <Item key={item.id} id={item.id} />
+        <Item id={item.id} />
         <button className='deleteItem' onClick={() => onDeleteItem(item.id)}> remove item </button>
       </li>
     );

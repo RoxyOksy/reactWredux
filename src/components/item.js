@@ -32,7 +32,7 @@ export default class Item extends Component {
 
     return(
       <div className="item">
-        <FileUploader vis={inputVisibility} onSelect={this.loadPreview}/>
+        <FileUploader vis={inputVisibility} id={this.props.id} onSelect={this.loadPreview}/>
         <ImagePreview vis={previewVisibility} src={image} onDelete={this.delete}/>
       </div>
     )
