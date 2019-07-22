@@ -16,12 +16,17 @@ export default class FileUploader extends Component {
   };
 
   render(){
-    let classNameBut = this.props.vis ? 'isVisible' : 'notVisible';
+    let classNameBut  = this.props.vis ? 'isVisible' : 'notVisible';
+    let classNameDiv = 'buttonBorder';
+    if(this.props.vis) {
+      classNameDiv += ' isVisible';
+    } else classNameDiv = 'notVisible';
 
     return(
       <div>
-        {/*<button  onClick={this.onClick} tabIndex='5'>Open}</button>*/}
-        <input type="file" accept=".png, .jpg, .jpeg" id={this.props.id} className={classNameBut}
+        <button className={classNameBut} onClick={this.onClick}>Open</button>
+        <div className='buttonBorder' className={classNameDiv}></div>
+        <input type="file" accept=".png, .jpg, .jpeg" id={this.props.id}
                onChange={this.handleChangeFile} />
       </div>
     )
