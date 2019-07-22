@@ -1,0 +1,17 @@
+@import "../../../../../../styles/colors";
+
+.fileUploader {
+  .buttonOpen {
+    display: inline-block;
+    color: $PRIMARY_COLOR;
+    background-color: transparent;
+    border: 1px solid $PRIMARY_COLOR;
+    border-radius: 3px;
+
+    &:hover{
+      color: $BACKGROUND_COLOR;
+      background-color: $PRIMARY_COLOR;
+    }
+  }
+
+}

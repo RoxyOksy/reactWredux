@@ -1,0 +1,12 @@
+.app {
+
+  button{
+    &:active{
+      user-select: none;
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
+}

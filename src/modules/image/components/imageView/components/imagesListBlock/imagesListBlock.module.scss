@@ -1,0 +1,25 @@
+@import "../../../../../../styles/colors";
+
+.imagesListBlock{
+  margin-left: 30px;
+  user-select: none;
+  outline: none;
+  list-style: none;
+
+  .deleteItem{
+    color: red;
+    display: inline;
+    border: 1px solid red;
+    border-radius: 3px;
+    background-color: $BACKGROUND_COLOR;
+    margin-left: 15px;
+
+    &:hover{
+      color: $BACKGROUND_COLOR;
+      background-color: red;
+    }
+  }
+}
+
+
+

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import ItemList from "./itemList";
-import AddItem from "./addItem";
-import './app.css';
 
-export default class App extends Component{
+import {ImageView} from "../components/imageView";
 
-  maxId = 1;
+import '../../../app/app.module.scss';
 
+export default class Index extends Component{
   state = {
     items: []
   };
+
+  maxId = 1;
 
   addItem = () => {
     const newItem = {id: this.maxId++};
@@ -34,10 +34,7 @@ export default class App extends Component{
 
   render() {
     return (
-      <div className="App">
-        <AddItem onAddItem={this.addItem}/>
-        <ItemList items={this.state.items} onDeleteItem={this.deleteItem}/>
-      </div>
+      <ImageView items={this.state.items} addItem={this.addItem} deleteItem={this.deleteItem} />
     );
   }
 }
