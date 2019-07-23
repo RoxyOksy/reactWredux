@@ -4,22 +4,15 @@ import {UserBlock} from "../userBlock";
 
 import styles from './usersListBlock.module.scss';
 
-const UsersListBlock = ({users, onDeleteUser}) => {
+const UsersListBlockComponent = ({users, onDeleteUser}) =>  (
+  <ul className={styles.usersListBlock}>
+    { users.map((user) => (
+        <li key={user.id} >
+          <UserBlock />
+          <button className={styles.deleteUser} onClick={() => onDeleteUser(user.id)}>remove user</button>
+        </li>
+      )) }
+  </ul>
+);
 
-  const elements = users.map((user) => {
-    return (
-      <li key={user.id} >
-        <UserBlock />
-        <button className={styles.deleteUser} onClick={() => onDeleteUser(user.id)}> remove user </button>
-      </li>
-    );
-  });
-
-  return (
-    <ul className={styles.usersListBlock}>
-      { elements }
-    </ul>
-  )
-};
-
-export default UsersListBlock;
+export default UsersListBlockComponent;

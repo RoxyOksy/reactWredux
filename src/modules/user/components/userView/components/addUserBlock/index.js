@@ -1,1 +1,1 @@
-export {default as AddUserBlock} from './addUserBlock.jsx'
+export {default as AddUserBlock} from './addUserBlock'

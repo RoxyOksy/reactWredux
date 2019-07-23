@@ -1,1 +1,1 @@
-export {default as UserBlock} from './userBlock'
+export {default as UserBlock} from './containers/userBlock'

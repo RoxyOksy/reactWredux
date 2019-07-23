@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from './addUserBlock.module.scss';
 
-const AddUser = ({onAddUser}) => {
+const AddUserBlockComponent = ({onAddUser}) => {
   return(
     <div>
       <button className={styles.addUserBlock} onClick={onAddUser}>+</button>
@@ -12,4 +12,4 @@ const AddUser = ({onAddUser}) => {
 
 };
 
-export default AddUser;
+export default AddUserBlockComponent;

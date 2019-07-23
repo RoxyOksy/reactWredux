@@ -1,40 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {UserView} from "../components/userView";
 
+import {withListControl} from "../../../shared/hocs";
+
 import '../../../app/app.module.scss';
 
-export default class Index extends Component{
-  state = {
-    users: []
-  };
+const UserContainer = ({onAddItem, onDeleteItem, items}) => (
+  <UserView users={items}
 
-  maxId = 1;
+             onAddUser={onAddItem}
+             onDeleteUser={onDeleteItem} />
+);
 
-  addUser = () => {
-    const newUser = {id: this.maxId++};
-
-    this.setState(({users}) => {
-      return{
-        users: [...users, newUser]
-      }
-    });
-  };
-
-  deleteUser = (id) => {
-    this.setState(({users}) => {
-      const index = users.findIndex((el) => el.id === id);
-      const newState = [...users.slice(0, index), ...users.slice(index + 1)];
-
-      return {
-        users: newState
-      }
-    });
-  };
-
-  render() {
-    return (
-      <UserView users={this.state.users} addUser={this.addUser} deleteUser={this.deleteUser} />
-    );
-  }
-}
+export default withListControl(UserContainer);
