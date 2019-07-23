@@ -1,1 +1,1 @@
-export {default as ImagePreviewBlock} from './imagesListBlock'
+export {default as ImagesListBlock} from './imagesListBlock'

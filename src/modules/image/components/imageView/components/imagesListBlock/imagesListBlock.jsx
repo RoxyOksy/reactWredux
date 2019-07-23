@@ -1,25 +1,18 @@
 import React from 'react';
 
-import ImageBlock from "../imageBlock/imageBlock";
+import {ImageBlock} from "../imageBlock";
 
 import styles from './imagesListBlock.module.scss';
 
-const Index = ({items, onDeleteItem}) => {
-
-  const elements = items.map((item) => {
-    return (
-      <li key={item.id} >
-        <ImageBlock id={item.id} />
-        <button className={styles.deleteItem} onClick={() => onDeleteItem(item.id)}> remove item </button>
-      </li>
-    );
-  });
-
-  return (
+const ImagesListBlockComponent = ({images, onDeleteImage}) => (
     <ul className={styles.imagesListBlock}>
-      { elements }
+      { images.map((image) => (
+        <li key={image.id} >
+          <ImageBlock id={image.id} />
+          <button className={styles.deleteItem} onClick={() => onDeleteImage(image.id)}>remove item</button>
+        </li>
+      )) }
     </ul>
-  )
-};
+);
 
-export default Index;
+export default ImagesListBlockComponent;

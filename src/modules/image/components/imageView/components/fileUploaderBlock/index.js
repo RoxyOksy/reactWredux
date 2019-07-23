@@ -1,1 +1,1 @@
-export {default as FileUploaderBlock} from './fileUploaderBlock'
+export {default as FileUploaderBlock} from './containers/fileUploaderBlock'

@@ -1,1 +1,1 @@
-export {default as AddImageBlock} from './addImageBlock.jsx'
+export {default as AddImageBlock} from './addImageBlock'

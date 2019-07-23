@@ -1,1 +1,1 @@
-export {default as ImageBlock} from './imageBlock'
+export {default as ImageBlock} from './containers/imageBlock'

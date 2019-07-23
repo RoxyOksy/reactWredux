@@ -1,2 +1,1 @@
-export {default  as Image } from './containers/image';
-
+export {default as Image } from './containers/image';
