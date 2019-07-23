@@ -1,11 +1,8 @@
 import React, {Component} from "react";
 
-import {FileUploaderBlock} from "../fileUploaderBlock";
-import {ImagePreviewBlock} from "../imagePreviewBlock";
+import styles from './userBlock.module.scss';
 
-import styles from './imageBlock.module.scss';
-
-export default class Index extends Component {
+export default class UserBlock extends Component {
 
   state = {
     image: null,
@@ -30,10 +27,8 @@ export default class Index extends Component {
     const {image, isFileUploaderVisible} = this.state;
 
     return(
-      <div className={styles.imageBlock}>
-        { isFileUploaderVisible ?
-          <FileUploaderBlock id={this.props.id} onSelect={this.loadPreview}/> :
-          <ImagePreviewBlock src={image} onDelete={this.delete}/> }
+      <div className={styles.userBlock}>
+
       </div>
     )
   };
