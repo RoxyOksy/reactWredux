@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from "@material-ui/core/Box";
 
 import {UserBlock} from "../userBlock";
 
@@ -8,8 +9,10 @@ const UsersListBlockComponent = ({users, onDeleteUser}) =>  (
   <ul className={styles.usersListBlock}>
     { users.map((user) => (
         <li key={user.id} >
-          <UserBlock />
-          <button className={styles.deleteUser} onClick={() => onDeleteUser(user.id)}>remove user</button>
+          <Box display={'flex'} alignItems={'center'} flexDirection={'row'}>
+            <UserBlock />
+            <button className={styles.deleteUser} onClick={() => onDeleteUser(user.id)}>remove user</button>
+          </Box>
         </li>
       )) }
   </ul>

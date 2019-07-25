@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import {Image} from "../modules/image";
 import {User} from "../modules/user"
@@ -7,14 +7,29 @@ import styles from './app.module.scss';
 
 //context
 
-const AppContainer = () => (
-  <div className={styles.app}>
-    <button>images</button>
-    <button>users</button>
-    <Image/>
-    <User/>
-  </div>);
+export default class AppContainer extends Component {
 
-export default AppContainer;
+  state = {
+    tab: 'image'
+  };
+
+  switchTab = (tabName) => {
+    this.setState({
+      tab: tabName,
+    });
+  };
+
+  render() {
+    const {tab} = this.state;
+
+    return (
+      <div className={styles.app}>
+        <button onClick={() => this.switchTab('image')}>images</button>
+        <button onClick={() => this.switchTab('user')}>users</button>
+        { (tab === 'image') ? <Image /> : <User /> }
+      </div>
+    );
+  }
+}
 
 

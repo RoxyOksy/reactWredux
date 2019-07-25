@@ -1,6 +1,8 @@
 .app {
 
   button{
+    background-color: transparent;
+
     &:active{
       user-select: none;
     }
