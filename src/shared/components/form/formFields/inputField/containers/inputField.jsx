@@ -2,30 +2,20 @@ import React, {Component} from "react";
 
 import {InputField} from "../components";
 
-export default class InputContainer extends Component {
+export default class InputFieldContainer extends Component {
   state = {
-    login: '',
-    isLoginEditable: true
-  };
-
-  handleToggleVisibility = () => {
-    const {login, isLoginEditable} = this.state;
-
-    if(login){
-      this.setState({
-        isLoginEditable: !(isLoginEditable),
-      });
-    }
+    value: ''
   };
 
   handleChangeValue = (e) => {
     this.setState({
-      login: e.target.value,
+      value: e.target.value,
     });
+
   };
 
   render() {
-    const {type, label} = this.props;
+    const {type, label, } = this.props;
     const {value} = this.state;
 
     return(
