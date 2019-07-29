@@ -8,8 +8,6 @@ export default class UserBlockContainer extends Component {
     image: null
   };
 
-
-
   render() {
     const {image} = this.state;
 

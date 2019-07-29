@@ -13,8 +13,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    border: '1px solid yellow'
+    justifyContent: 'flex-start'
   }
 }));
 
