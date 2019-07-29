@@ -1,8 +1,8 @@
-.app {
-
+.root {
+  a:hover {
+    color: inherit;
+  }
   button{
-    background-color: transparent;
-
     &:active{
       user-select: none;
     }
