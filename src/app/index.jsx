@@ -19,13 +19,17 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  content: {
+
+  },
+  footer: {
+    // top: 'auto',
+    // bottom: 0,
+  },
   title: {
     flexGrow: 1,
   },
-  footer: {
-    top: 'auto',
-    bottom: 0,
-  }
+
 });
 
 class AppContainer extends Component {
@@ -35,7 +39,7 @@ class AppContainer extends Component {
 
     return (
       <Box className={appStyles.root}>
-        <AppBar position="fixed">
+        <AppBar position="fixed" >
           <Container fixed>
             <Toolbar>
               <Typography variant="h6" className={classes.title}>
@@ -51,9 +55,9 @@ class AppContainer extends Component {
           </Container>
         </AppBar>
 
-        <Box flex={1} bgcolor="secondary.main" >
-          <Container fixed>
-            <Box flex={1} height={'100vh'} padding={'100px 0px'} overflow="auto" bgcolor="primary.contrastText" >
+        <Box display={'flex'} flex={1} bgcolor="secondary.main" pt={14} pb={6}>
+          <Container style={{display: 'flex', flex: 1}} fixed>
+            <Box flex={1}   pb={8}  bgcolor="primary.contrastText" >
               <Switch>
                 <Route exact path="/" component={User}/>
                 <Route path="/users" component={User} />
@@ -63,7 +67,7 @@ class AppContainer extends Component {
           </Container>
         </Box>
 
-        <AppBar position="fixed" color="primary" className={classes.footer}>
+        <AppBar position="static" color="primary" className={classes.footer}>
           <Toolbar>
             <Typography>My footer</Typography>
           </Toolbar>
