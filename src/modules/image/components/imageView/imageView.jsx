@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 
-import {pages} from "../../../../utils/routeConfiguration.js"
 import {PageTitle} from "../../../../shared/components";
 import {ImagesListBlock} from "./components/imagesListBlock";
 import {AddImageBlock} from "./components/addImageBlock";

@@ -21,8 +21,6 @@ const useStyles = makeStyles(theme => ({
     fabButton: {}
 }));
 
-
-
 const ImagesListBlockComponent = ({images, onDeleteImage}) => {
     const classes = useStyles();
 
@@ -34,8 +32,8 @@ const ImagesListBlockComponent = ({images, onDeleteImage}) => {
                     <ImageBlock id={image.id}/>
                     <Fab color="secondary" className={classes.fabButton}
                                onClick={() => onDeleteImage(image.id)}>
-                    <Clear/>
-                </Fab>
+                        <Clear/>
+                    </Fab>
                 </Box>
             </li>
           ))}
