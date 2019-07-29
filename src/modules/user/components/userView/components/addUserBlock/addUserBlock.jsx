@@ -11,10 +11,9 @@ const useStyles = makeStyles(theme => ({
     direction: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginLeft: '40px'
+    margin: '35px'
   },
   fabButton: {
-    color: 'primary.contrastText',
     marginRight: '15px'
   }
 }));
@@ -24,7 +23,7 @@ const AddUserBlockComponent = ({onAddUser}) => {
 
   return (
     <Box className={classes.root}>
-      <Fab color="secondary" className={classes.fabButton}
+      <Fab color="primary" className={classes.fabButton}
            onClick={onAddUser} >
         <AddIcon />
       </Fab>
