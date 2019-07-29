@@ -8,8 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
-import {Image} from "../modules/image";
-import {User} from "../modules/user"
+import {pages} from "../utils/routeConfiguration.js"
 
 import appStyles from './app.module.scss';
 
@@ -59,9 +58,7 @@ class AppContainer extends Component {
           <Container style={{display: 'flex', flex: 1}} fixed>
             <Box flex={1}   pb={8}  bgcolor="primary.contrastText" >
               <Switch>
-                <Route exact path="/" component={User}/>
-                <Route path="/users" component={User} />
-                <Route path="/images" component={Image } />
+                {pages.map((page)=><Route exact path={page.route} component={page.component} title={page.title}/>)}
               </Switch>
             </Box>
           </Container>
