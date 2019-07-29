@@ -1,0 +1,13 @@
+@import "../../../../styles/colors";
+
+  .darken{
+    padding: 20px 40px;
+    background: $PRIMARY_COLOR_VARIANT1;
+    color: $PRIMARY_CONTRAST_COLOR;
+  }
+
+.big{
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
