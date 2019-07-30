@@ -5,8 +5,7 @@ export const pages = [
   {
     route: "/",
     title: "Users",
-    component: User,
-    menuItem: "Users"
+    component: User
   },
 
   {

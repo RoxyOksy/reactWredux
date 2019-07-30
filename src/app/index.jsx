@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
+import {colors} from '../constants'
 import {pages} from "../utils/routeConfiguration.js"
 
 import appStyles from './app.module.scss';
@@ -28,7 +29,14 @@ const styles = theme => ({
   title: {
     flexGrow: 1,
   },
+  button: {
+    color: colors.PRIMARY_CONTRAST_COLOR,
 
+    '&:hover': {
+      color: colors.PRIMARY_COLOR,
+      backgroundColor: colors.PRIMARY_CONTRAST_COLOR
+    }
+  }
 });
 
 class AppContainer extends Component {
@@ -44,19 +52,20 @@ class AppContainer extends Component {
               <Typography variant="h6" className={classes.title}>
                 Admin Panel
               </Typography>
-              <Button component={Link} to="/images" color="inherit">
-                images
-              </Button>
-              <Button component={Link} to="/users"  color="inherit">
-                users
-              </Button>
+
+              {pages.filter((page) => page.menuItem)
+                .map((page)=>
+                  <Button component={Link} to={page.route} className={classes.button}>
+                    {page.menuItem}
+                  </Button>)}
+
             </Toolbar>
           </Container>
         </AppBar>
 
         <Box display={'flex'} flex={1} bgcolor="secondary.main" pt={14} pb={6}>
           <Container style={{display: 'flex', flex: 1}} fixed>
-            <Box flex={1}   pb={8}  bgcolor="primary.contrastText" >
+            <Box flex={1} pb={8} bgcolor="primary.contrastText" >
               <Switch>
                 {pages.map((page)=><Route exact path={page.route} component={page.component} title={page.title}/>)}
               </Switch>
