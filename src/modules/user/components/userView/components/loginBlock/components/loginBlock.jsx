@@ -7,8 +7,6 @@ import Button from "@material-ui/core/Button";
 import Check from '@material-ui/icons/Check';
 import {makeStyles} from '@material-ui/core/styles';
 
-import styles from './loginBlock.module.scss';
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',

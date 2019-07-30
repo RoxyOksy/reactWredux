@@ -45,7 +45,7 @@ const SelectFieldComponent = ({inputLabel, onItemChange, name, value, defaultVal
                  <Box display={'flex'} alignItems={'center'} flexDirection={'row'}  component="span" m={1}>
                    {get(item, 'image')&&<ListItemAvatar>
                      <Avatar>
-                       <img  src={get(item, 'image')} />  </Avatar>
+                       <img src={get(item, 'image')} alt='avatar' /> </Avatar>
                    </ListItemAvatar>}
                    {
                      get(item, 'text')&&<Typography variant="body2" gutterBottom>

@@ -3,7 +3,6 @@ import Card from "@material-ui/core/Card";
 import Fab from "@material-ui/core/Fab";
 import Clear from "@material-ui/icons/Clear";
 
-import styles from './imagePreviewBlock.module.scss';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({

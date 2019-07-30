@@ -16,16 +16,6 @@ import appStyles from './app.module.scss';
 //context
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  content: {
-
-  },
-  footer: {
-    // top: 'auto',
-    // bottom: 0,
-  },
   title: {
     flexGrow: 1,
   },
@@ -73,7 +63,7 @@ class AppContainer extends Component {
           </Container>
         </Box>
 
-        <AppBar position="static" color="primary" className={classes.footer}>
+        <AppBar position="static" color="primary">
           <Toolbar>
             <Typography>My footer</Typography>
           </Toolbar>

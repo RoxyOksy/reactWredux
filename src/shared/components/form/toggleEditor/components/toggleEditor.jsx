@@ -3,6 +3,14 @@ import Box from "@material-ui/core/Box";
 
 import {makeStyles} from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
+}));
+
 const ToggleEditorComponent = ({
                                  isEditState,
                                  InputField,
@@ -11,9 +19,10 @@ const ToggleEditorComponent = ({
                                  onChangeEditState
                                }) => {
 
+  const classes = useStyles();
 
   return (
-    <Box display={'flex'} alignItems={'center'} flexDirection={'row'} m={1}>
+    <Box m={1} className={classes.root}>
       {isEditState?<>
         <InputField />
         <ConfirmationButton onClick={()=>onChangeEditState(false)} />
