@@ -1,3 +1,5 @@
+@import "../styles/colors";
+
 .root {
   min-height: 100vh;
   display: flex;
@@ -14,5 +16,16 @@
     &:focus{
       outline: none;
     }
+  }
+  .headerButton{
+    color: $PRIMARY_CONTRAST_COLOR;
+    transition: all 0.1s ease-in;
+    &:hover,&.active{
+      color: $PRIMARY_COLOR;
+      background: $PRIMARY_CONTRAST_COLOR;
+    }
+  }
+  .headerTitle{
+    flex-grow: 1;
   }
 }

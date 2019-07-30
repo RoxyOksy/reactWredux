@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Route, Switch, Link} from "react-router-dom";
-import {withStyles} from '@material-ui/core/styles';
+import classNames from 'classnames';
+import get from 'lodash/get';
+import {Route, Switch, Link, Redirect} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,46 +9,31 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
-import {colors} from '../constants'
 import {pages} from "../utils/routeConfiguration.js"
 
 import appStyles from './app.module.scss';
 
 //context
 
-const styles = theme => ({
-  title: {
-    flexGrow: 1,
-  },
-  button: {
-    color: colors.PRIMARY_CONTRAST_COLOR,
-
-    '&:hover': {
-      color: colors.PRIMARY_COLOR,
-      backgroundColor: colors.PRIMARY_CONTRAST_COLOR
-    }
-  }
-});
-
 class AppContainer extends Component {
 
   render() {
-    const {classes} = this.props;
 
     return (
       <Box className={appStyles.root}>
         <AppBar position="fixed" >
           <Container fixed>
             <Toolbar>
-              <Typography variant="h6" className={classes.title}>
+              <Typography variant="h6" className={appStyles.headerTitle}>
                 Admin Panel
               </Typography>
 
               {pages.filter((page) => page.menuItem)
                 .map((page)=>
-                  <Button component={Link} to={page.route} className={classes.button}>
+                {
+                  return <Button component={Link} to={page.route} onClick={(()=>this.forceUpdate())} className={classNames(appStyles.headerButton,get(window,'location.pathname')===page.route?appStyles.active:null)}>
                     {page.menuItem}
-                  </Button>)}
+                  </Button>})}
 
             </Toolbar>
           </Container>
@@ -57,20 +43,25 @@ class AppContainer extends Component {
           <Container style={{display: 'flex', flex: 1}} fixed>
             <Box flex={1} pb={8} bgcolor="primary.contrastText" >
               <Switch>
-                {pages.map((page)=><Route exact path={page.route} component={page.component} title={page.title}/>)}
+                {pages.map((page)=><Route exact path={page.route}
+                                          component={(props) => <page.component {...props} page={page} />}
+                                    />)}
+                <Route component={NotFoundPageBlock} />
               </Switch>
             </Box>
           </Container>
         </Box>
 
         <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography>My footer</Typography>
-          </Toolbar>
+          <Container fixed>
+            <Toolbar>
+              <Typography>My footer</Typography>
+            </Toolbar>
+          </Container>
         </AppBar>
       </Box>
     );
   }
 }
-export default  withStyles(styles)(AppContainer)
+export default  AppContainer
 

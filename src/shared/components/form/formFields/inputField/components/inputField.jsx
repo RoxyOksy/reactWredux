@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    width: '80%',
+    width: '100%',
   },
   input: {
 

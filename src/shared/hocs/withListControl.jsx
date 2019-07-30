@@ -31,7 +31,7 @@ export const withListControl = (Component) =>{
     render() {
       const {items} = this.state;
 
-      return <Component items={items} onAddItem={this.handleAddItem} onDeleteItem={this.handleDeleteItem} />
+      return <Component {...this.props} items={items} onAddItem={this.handleAddItem} onDeleteItem={this.handleDeleteItem} />
     }
   }
 }

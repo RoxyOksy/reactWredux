@@ -6,9 +6,6 @@ import Box from '@material-ui/core/Box';
 import styles from "./pageTitle.module.scss";
 
 const PageTitleComponent = ({title, variant, componentStyle}) =>  {
-  console.log(777777);
-  console.log(styles);
-
   return (
     <Box as={variant} className={classNames(styles[get(componentStyle, 'size', 'big')], styles[get(componentStyle, 'theme', 'darken')])} >
       {title}
