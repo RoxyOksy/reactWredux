@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
 import {pages} from "../utils/routeConfiguration.js"
+import {NotFoundPageBlock} from "../modules/uniquePage/notFoundPageBlock";
 
 import appStyles from './app.module.scss';
 
