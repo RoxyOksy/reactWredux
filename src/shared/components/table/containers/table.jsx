@@ -1,16 +1,30 @@
 import React, {Component} from 'react'
-import {Table, CounterCell, ControlCell, ImageUploaderCell} from '../components'
+import {Table} from '../components'
 import {getDefaultTableConfig} from './defaultTableConfig'
 
 class TableContainer extends Component{
-  gridApi=null
+  state={
+    order: 'asc',
+    orderBy: 'counter'
+  }
+
+  requestSort = (event, property) =>{
+    const {orderBy, order} = this.state
+    const isDesc = orderBy === property && order === 'desc';
+
+    this.setState({
+      order: isDesc ? 'asc' : 'desc',
+      orderBy:orderBy
+    })
+  }
+
+  handleCreateSort = property => event =>  this.requestSort(event, property);
+
   render(){
-console.log('^^^^^^^');
-console.log(this.gridApi);
+    const {orderBy, order} = this.state;
 
     return (
-      <Table
-
+      <Table orderBy={orderBy} order={order} onCreateSort={this.handleCreateSort}
         {...getDefaultTableConfig(this)} {...this.props} />
     )
   }

@@ -1,7 +1,8 @@
 import React from "react";
 
- const CounterCellComponent = (props)=>{
-  return <span>{props.value}</span>
+ const CounterCellComponent = ({counter})=>{
+  return <span>{counter}</span>
 };
 
 export default CounterCellComponent
+

@@ -7,8 +7,10 @@ export const withListControl = (Component) =>{
       items: []
     };
 
+    counter = 1;
+
     handleAddItem = () => {
-      const newItem = {id: uid()};
+      const newItem = {id: uid(), counter: this.counter++};
 
       this.setState(({items}) => {
         return{
@@ -34,4 +36,4 @@ export const withListControl = (Component) =>{
       return <Component {...this.props} items={items} onAddItem={this.handleAddItem} onDeleteItem={this.handleDeleteItem} />
     }
   }
-}
+};

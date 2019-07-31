@@ -32,7 +32,7 @@ class AppContainer extends Component {
               {pages.filter((page) => page.menuItem)
                 .map((page)=>
                 {
-                  return <Button component={Link} to={page.route} onClick={(()=>this.forceUpdate())} className={classNames(appStyles.headerButton,get(window,'location.pathname')===page.route?appStyles.active:null)}>
+                  return <Button key={page.route} component={Link} to={page.route} onClick={(()=>this.forceUpdate())} className={classNames(appStyles.headerButton,get(window,'location.pathname')===page.route?appStyles.active:null)}>
                     {page.menuItem}
                   </Button>})}
 
@@ -44,7 +44,7 @@ class AppContainer extends Component {
           <Container style={{display: 'flex', flex: 1}} fixed>
             <Box display={'flex'} flex={1} pb={8} bgcolor="primary.contrastText" >
               <Switch>
-                {pages.map((page)=><Route exact path={page.route}
+                {pages.map((page)=><Route key={page.route} exact path={page.route}
                                           component={(props) => <page.component {...props} page={page} />}
                                     />)}
                 <Route component={NotFoundPageBlock} />
