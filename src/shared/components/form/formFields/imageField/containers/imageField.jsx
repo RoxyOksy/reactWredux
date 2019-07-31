@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 
-import {ImageBlock} from "../components";
+import {ImageField} from "../components";
 
-export default class ImageBlockContainer extends Component {
+export default class ImageFieldContainer extends Component {
   state = {
     image: null,
     isFileUploaderVisible: true,
@@ -26,7 +26,7 @@ export default class ImageBlockContainer extends Component {
     const {image, isFileUploaderVisible} = this.state;
 
     return(
-      <ImageBlock isFileUploaderVisible={isFileUploaderVisible}
+      <ImageField isFileUploaderVisible={isFileUploaderVisible}
 
                   image={image}
 

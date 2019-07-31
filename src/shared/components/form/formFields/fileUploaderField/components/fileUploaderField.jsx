@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FileUploaderBlockComponent  = ({fileInputRef, onFileUploaderClick, onChangeFile}) => {
+const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChangeFile}) => {
   const classes = useStyles();
 
   return (
@@ -29,4 +29,4 @@ const FileUploaderBlockComponent  = ({fileInputRef, onFileUploaderClick, onChang
   );
 };
 
-export default FileUploaderBlockComponent
+export default FileUploaderFieldComponent

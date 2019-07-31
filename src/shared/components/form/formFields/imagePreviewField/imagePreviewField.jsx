@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ImagePreviewComponent = ({src, onDelete}) => {
+const ImagePreviewFieldComponent = ({src, onDelete}) => {
   const classes = useStyles();
 
   return (
@@ -32,4 +32,4 @@ const ImagePreviewComponent = ({src, onDelete}) => {
   );
 };
 
-export default ImagePreviewComponent;
+export default ImagePreviewFieldComponent;

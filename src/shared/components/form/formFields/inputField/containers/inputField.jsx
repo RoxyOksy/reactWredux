@@ -18,7 +18,7 @@ export default class InputFieldContainer extends Component {
     const {type, label, } = this.props;
     const {value} = this.state;
 
-    return(
+    return (
       <InputField
         type={type}
         label={label}

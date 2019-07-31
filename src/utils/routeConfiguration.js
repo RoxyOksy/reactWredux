@@ -5,7 +5,8 @@ export const pages = [
   {
     route: "/",
     title: "Users",
-    component: User
+    component: User,
+    //params = {content for 404 page} => text constants
   },
 
   {

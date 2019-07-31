@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 
-import {FileUploaderBlock} from '../components';
+import {FileUploaderField} from '../components';
 
-export default class FileUploaderBlockContainer extends Component {
+export default class FileUploaderFieldContainer extends Component {
   fileInputRef = React.createRef();
 
   handleFileUploaderClick = ()=> this.fileInputRef.current.click()
@@ -17,7 +17,7 @@ export default class FileUploaderBlockContainer extends Component {
 
   render(){
     return(
-      <FileUploaderBlock
+      <FileUploaderField
         fileInputRef={this.fileInputRef}
 
         onFileUploaderClick={this.handleFileUploaderClick}

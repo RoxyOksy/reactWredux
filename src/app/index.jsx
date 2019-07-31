@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import get from 'lodash/get';
-import {Route, Switch, Link, Redirect} from "react-router-dom";
+import {Route, Switch, Link} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -64,5 +64,5 @@ class AppContainer extends Component {
     );
   }
 }
-export default  AppContainer
+export default AppContainer
 

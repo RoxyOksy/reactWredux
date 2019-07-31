@@ -20,9 +20,7 @@ const InputFieldComponent = ({type, label, value, handleChangeValue}) => {
 
   return (
     <Box display={'flex'} alignItems={'center'} flexDirection={'row'} component="span" m={1}>
-
       <FormControl className={classes.formControl}>
-
         <TextField
           className={classes.input}
 
@@ -32,9 +30,7 @@ const InputFieldComponent = ({type, label, value, handleChangeValue}) => {
 
           onChange={handleChangeValue}
         />
-
      </FormControl>
-
   </Box>
   );
 };
