@@ -26,23 +26,8 @@ export default class ImagesListBlockComponent extends Component {
         const {onDeleteImage, imageTableConfig} = this.props;
 
         return (
-          <Box>
-              {/*<ul className={classes.root}>*/}
-              {/*    {images.map((image) => (*/}
-              {/*      <li key={image.id} className={classes.list}>*/}
-              {/*          <Box className={classes.item}>*/}
-
-              {/*              <Fab color="secondary" className={classes.fabButton}*/}
-              {/*                   onClick={() => onDeleteImage(image.id)}>*/}
-
-              {/*              </Fab>*/}
-              {/*          </Box>*/}
-              {/*      </li>*/}
-              {/*    ))}*/}
-              {/*</ul>*/}
-
-
-                  <Table onDeleteItem={onDeleteImage} tableConfig={imageTableConfig} />
+          <Box display={'flex'} flex={1}>
+                 <Table onDeleteItem={onDeleteImage} tableConfig={imageTableConfig} />
           </Box>
         );
     };

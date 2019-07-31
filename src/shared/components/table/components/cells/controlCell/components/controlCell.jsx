@@ -1,14 +1,14 @@
 import React from "react";
-import Fab from "@material-ui/core/Fab";
+import Button from '@material-ui/core/Button';
 import Clear from "@material-ui/icons/Clear";
 
  const ControlCellComponent = ({onDeleteImage, id})=>{
 
   return (
-    <Fab color="secondary"
-         onClick={() => onDeleteImage(id)}>
+    <Button fullWidth onClick={() => onDeleteImage(id)} color="secondary" variant="contained" >
       <Clear />
-    </Fab>
+    </Button>
+
   )
 };
 

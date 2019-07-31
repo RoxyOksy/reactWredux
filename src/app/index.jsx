@@ -42,7 +42,7 @@ class AppContainer extends Component {
 
         <Box display={'flex'} flex={1} bgcolor="secondary.main" pt={14} pb={6}>
           <Container style={{display: 'flex', flex: 1}} fixed>
-            <Box flex={1} pb={8} bgcolor="primary.contrastText" >
+            <Box display={'flex'} flex={1} pb={8} bgcolor="primary.contrastText" >
               <Switch>
                 {pages.map((page)=><Route exact path={page.route}
                                           component={(props) => <page.component {...props} page={page} />}

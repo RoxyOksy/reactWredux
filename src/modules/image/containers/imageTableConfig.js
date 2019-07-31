@@ -1,9 +1,9 @@
 export const  imageTableConfig = {
 
   columnDefs: [
-    { headerName: "#", field: "counter", cellRenderer: 'counterCell', sortable: true },
-    { headerName: "upload", field: "imageUploader", cellRenderer: 'imageUploaderCell', sortable: true },
-    { headerName: "control", field: "control", cellRenderer: 'controlCell' }
+    { width: 5, headerName: "#", field: "counter", cellRenderer: 'counterCell', sortable: true },
+    { width: 90,headerName: "upload", field: "imageUploader", cellRenderer: 'imageUploaderCell', sortable: true },
+    {  width: 5,headerName: "control", field: "control", cellRenderer: 'controlCell' }
   ],
 
   rowData: [

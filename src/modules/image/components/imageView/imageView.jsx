@@ -9,7 +9,7 @@ import {AddImageBlock} from "./components/addImageBlock";
 import '../../../../app/app.module.scss';
 
 const ImageViewComponent = ({images,imageTableConfig, onAddImage, page, onDeleteImage} )=> (
-  <Box className="App">
+  <Box display={'flex'} flexDirection={'column'} flex={1} className="App">
     <PageTitle componentStyle={{theme:'darken', size: 'big'}} title={get(page,'title')} variant={'h1'} />
     <AddImageBlock onAddImage={onAddImage}/>
     <ImagesListBlock images={images}

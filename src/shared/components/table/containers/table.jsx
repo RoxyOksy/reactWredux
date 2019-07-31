@@ -1,19 +1,19 @@
-import React from 'react'
-import {Table, CounterCell,ControlCell,ImageUploaderCell} from '../components'
+import React, {Component} from 'react'
+import {Table, CounterCell, ControlCell, ImageUploaderCell} from '../components'
+import {getDefaultTableConfig} from './defaultTableConfig'
 
+class TableContainer extends Component{
+  gridApi=null
+  render(){
+console.log('^^^^^^^');
+console.log(this.gridApi);
 
-const TableContainer = (props) => {
-  const defaultTableConfig ={
-    frameworkComponents:{
-      counterCell: CounterCell,
-      controlCell: ControlCell,
-      imageUploaderCell: ImageUploaderCell
-    }
+    return (
+      <Table
+
+        {...getDefaultTableConfig(this)} {...this.props} />
+    )
   }
-
-  return (
-    <Table {...defaultTableConfig} {...props} />
-  )
-};
+}
 
 export default TableContainer
