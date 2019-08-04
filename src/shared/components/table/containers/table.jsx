@@ -1,22 +1,26 @@
 import React, {Component} from 'react'
+
 import {Table} from '../components'
 import {getDefaultTableConfig} from './defaultTableConfig'
 
-class TableContainer extends Component{
-  state={
-    order: 'asc',
-    orderBy: 'counter'
+export default class TableContainer extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      order: 'asc',
+      orderBy: 'counter'
+    };
   }
 
   requestSort = (event, property) =>{
-    const {orderBy, order} = this.state
+    const {orderBy, order} = this.state;
     const isDesc = orderBy === property && order === 'desc';
 
     this.setState({
       order: isDesc ? 'asc' : 'desc',
-      orderBy:orderBy
+      orderBy: orderBy
     })
-  }
+  };
 
   handleCreateSort = property => event =>  this.requestSort(event, property);
 
@@ -29,5 +33,3 @@ class TableContainer extends Component{
     )
   }
 }
-
-export default TableContainer

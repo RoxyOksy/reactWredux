@@ -13,6 +13,7 @@ export const withListControl = (Component) =>{
       const newItem = {id: uid(), counter: this.counter++};
 
       this.setState(({items}) => {
+
         return{
           items: [...items, newItem]
         }

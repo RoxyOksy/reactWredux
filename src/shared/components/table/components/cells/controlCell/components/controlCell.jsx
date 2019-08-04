@@ -1,15 +1,13 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
-import Clear from "@material-ui/icons/Clear";
+import get from "lodash/get";
 
- const ControlCellComponent = ({onDeleteImage, id})=>{
+import {Button} from "../../../../../form/button";
 
-  return (
-    <Button fullWidth onClick={() => onDeleteImage(id)} color="secondary" variant="contained" >
-      <Clear />
-    </Button>
+ const ControlCellComponent = ({params, row}) => {
 
-  )
+  return get(params,'buttons',[]).map((buttonData) => {
+    return <Button {...buttonData} onClick={ get(buttonData,'onClick',() => null).bind(null, get(row,'id'))} />
+  })
 };
 
 export default ControlCellComponent

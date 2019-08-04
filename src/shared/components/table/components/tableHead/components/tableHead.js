@@ -7,7 +7,8 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 
 import {useTableHeadStyle} from './tableHead.style';
 
-const TableHeadComponent = ( {  order, orderBy, onCreateSort, tableConfig:{headColumns} })=> {
+const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns })=> {
+
   const classes = useTableHeadStyle();
     return (
       <TableHead>

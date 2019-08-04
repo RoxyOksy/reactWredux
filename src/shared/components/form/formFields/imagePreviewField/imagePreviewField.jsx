@@ -1,20 +1,32 @@
 import React from 'react';
 import Card from "@material-ui/core/Card";
-import Fab from "@material-ui/core/Fab";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import Clear from "@material-ui/icons/Clear";
 
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '15px',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+
+  },
+  imageBox: {
+    display: 'flex',
+    justifyContent: 'center',
+
+    flexGrow: '1'
   },
   image: {
     maxWidth: '400px',
-    maxHeight: '200px'
+    // maxHeight: '200px',
+
   },
-  fabButton: {
-    marginLeft: '15px'
+  button: {
+    width: '10px',
   }
 }));
 
@@ -22,13 +34,14 @@ const ImagePreviewFieldComponent = ({src, onDelete}) => {
   const classes = useStyles();
 
   return (
-  <Card className={classes.root}>
-    <img src={src} alt="my_pic" className={classes.image}/>
-    <Fab color="secondary" className={classes.fabButton}
-         onClick={onDelete}>
-      <Clear/>
-    </Fab>
-  </Card>
+  <Box className={classes.root}>
+    <Box className={classes.imageBox}>
+      <img src={src} alt="my_pic" className={classes.image}/>
+    </Box>
+    <Button className={classes.button} onClick={onDelete} variant="outlined" >
+      <Clear color='primary'/>
+    </Button>
+  </Box>
   );
 };
 
