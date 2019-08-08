@@ -8,7 +8,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import {withTranslation} from 'react-i18next';
 
+import '../locale/i18n';
 import {pages} from "../utils/routeConfiguration.js"
 import {NotFoundPageBlock} from "../modules/uniquePage/notFoundPageBlock";
 
@@ -19,22 +21,24 @@ import appStyles from './app.module.scss';
 class AppContainer extends Component {
 
   render() {
+    const { t } = this.props;
 
     return (
       <Box className={appStyles.root}>
-        <AppBar position="fixed" >
+        <AppBar position="fixed">
           <Container fixed>
             <Toolbar>
               <Typography variant="h6" className={appStyles.headerTitle}>
-                Admin Panel
+                {t('ADMIN_PANEL_TEXT')}
               </Typography>
 
               {pages.filter((page) => page.menuItem)
-                .map((page)=>
-                {
-                  return <Button key={page.route} component={Link} to={page.route} onClick={(()=>this.forceUpdate())} className={classNames(appStyles.headerButton,get(window,'location.pathname')===page.route?appStyles.active:null)}>
-                    {page.menuItem}
-                  </Button>})}
+                .map((page) => {
+                  return <Button key={page.route} component={Link} to={page.route} onClick={(() => this.forceUpdate())}
+                                 className={classNames(appStyles.headerButton, get(window, 'location.pathname') === page.route ? appStyles.active : null)}>
+                    {t(page.menuItem)}
+                  </Button>
+                })}
 
             </Toolbar>
           </Container>
@@ -42,12 +46,12 @@ class AppContainer extends Component {
 
         <Box display={'flex'} flex={1} bgcolor="secondary.main" pt={14} pb={6}>
           <Container style={{display: 'flex', flex: 1}} fixed>
-            <Box display={'flex'} flex={1} pb={8} bgcolor="primary.contrastText" >
+            <Box display={'flex'} flex={1} pb={8} bgcolor="primary.contrastText">
               <Switch>
-                {pages.map((page)=><Route key={page.route} exact path={page.route}
-                                          component={(props) => <page.component {...props} page={page} />}
-                                    />)}
-                <Route component={NotFoundPageBlock} />
+                {pages.map((page) => <Route key={page.route} exact path={page.route}
+                                            component={(props) => <page.component {...props} page={page}/>}
+                />)}
+                <Route component={NotFoundPageBlock}/>
               </Switch>
             </Box>
           </Container>
@@ -56,13 +60,14 @@ class AppContainer extends Component {
         <AppBar position="static" color="primary">
           <Container fixed>
             <Toolbar>
-              <Typography>My footer</Typography>
+              <Typography>{t('FOOTER_TEXT')}</Typography>
             </Toolbar>
           </Container>
         </AppBar>
       </Box>
     );
-  }
+  };
 }
-export default AppContainer
+
+export default withTranslation()(AppContainer);
 

@@ -5,4 +5,4 @@ export const EN_FORM_FIELDS = {
   GENDER_LABEL: 'gender',
   MALE_LABEL: 'male',
   FEMALE_LABEL: 'female',
-}
+};

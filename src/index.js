@@ -6,7 +6,7 @@ import { createBrowserHistory } from "history";
 
 import App from './app';
 
-import configureStore from './utils/storeConfiguration'
+import './locale/i18n';
 
 import './index.css';
 
@@ -19,7 +19,7 @@ const renderApp = () =>
       <App /></Router>
     </Provider>,
     document.getElementById('root')
-  )
+  );
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
   module.hot.accept('./app', renderApp)

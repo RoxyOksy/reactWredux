@@ -2,30 +2,19 @@ export const EN = {
   ADMIN_PANEL_TEXT: 'Admin Panel',
   FOOTER_TEXT: 'Footer',
 
-  images: {
-    IMAGES_TITLE: 'Images',
-    ADD_PICTURE: 'Add picture',
-    UPLOAD_TEXT: 'upload',
-  },
+  IMAGES_TITLE: 'Images',
+  USERS_TITLE: 'Users',
 
-  users: {
-    USERS_TITLE: 'Users',
-    ADD_USER: 'Add user',
-  },
+  IMAGES_MENU: 'Images',
+  USERS_MENU: 'Users',
 
-  formFieldLabel: {
-    LOGIN: 'login',
-    PASSWORD: 'password',
-    AVATAR: 'avatar',
-    GENDER: 'gender',
-    MALE: 'male',
-    FEMALE: 'female',
-  },
+  ADD_TEXT: 'Add',
+  UPLOAD_TEXT: 'upload',
+  TABLE_HEAD_UPLOAD: 'Image Uploader',
+  TABLE_HEAD_CONTROL: 'Control',
+  TABLE_HEAD_USER_INFO: 'User info',
 
-  formFieldPlaceholder: {
-    LOGIN: 'Type your login',
-    PASSWORD: 'Type your password',
-    AVATAR: 'Choose avatar',
-  }
+  // ADD_PICTURE: 'Add picture',
+
 
 };

@@ -4,23 +4,23 @@ import {User} from "../modules/user"
 export const pages = [
   {
     route: "/",
-    title: "Users",
+    title: "USERS_TITLE",
     component: User,
     //params = {content for 404 page} => text constants
   },
 
   {
     route: "/users",
-    title: "Users",
+    title: "USERS_TITLE",
     component: User,
-    menuItem: "Users"
+    menuItem: "USERS_MENU"
   },
 
   {
     route: "/images",
-    title: "Images",
+    title: "IMAGES_TITLE",
     component: Image,
-    menuItem: "Images"
+    menuItem: "IMAGES_MENU"
   },
 
 ];
