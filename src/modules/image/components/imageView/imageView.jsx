@@ -6,7 +6,7 @@ import {PageTitle, Table} from "../../../../shared/components";
 
 import '../../../../app/app.module.scss';
 
-const ImageViewComponent = ({imageTableConfig, page,items} )=> {
+const ImageViewComponent = ({imageTableConfig, page, items} )=> {
 
   return (
   <Box display={'flex'} flexDirection={'column'} flex={1} className="App">

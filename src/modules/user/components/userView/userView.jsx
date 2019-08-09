@@ -8,10 +8,10 @@ import {AddUserBlock} from "./components/addUserBlock";
 
 import '../../../../app/app.module.scss';
 
-const UserViewComponent = ({users, onAddUser, page, onDeleteUser}) => {
+const UserViewComponent = ({ users, onAddUser, page, onDeleteUser }) => {
   return (
     <Box className="App">
-      <PageTitle componentStyle={{theme:'darken', size: 'big'}} title={get(page,'title')} variant={'h1'} />
+      <PageTitle componentStyle={{theme: 'darken', size: 'big'}} title={get(page,'title')} variant={'h1'} />
       <AddUserBlock onAddUser={onAddUser}/>
       <UsersListBlock users={users} onDeleteUser={onDeleteUser}/>
     </Box>

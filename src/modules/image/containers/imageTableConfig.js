@@ -1,6 +1,5 @@
 import Clear from "@material-ui/icons/Clear";
 import AddIcon from '@material-ui/icons/Add';
-import { useTranslation} from 'react-i18next';
 
 import {COLORS} from '../../../constants';
 import {BUTTON_SHAPE} from '../../../constants';

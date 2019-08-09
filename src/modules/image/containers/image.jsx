@@ -1,44 +1,21 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import uid from "uid";
 
 import {ImageView} from "../components/imageView";
 import {getImageTableConfig} from "./imageTableConfig";
+import {addItem} from '../actions/action';
+import {deleteItem} from '../actions/action';
 
 import '../../../app/app.module.scss';
 
-class ImageContainer  extends Component{
-    state={
-        items:[]
-    };
-
-    handleAddItem = () => {
-        const newItem = {id: uid()};
-
-        this.setState(({items}) => {
-            return{
-                items: [...items, newItem]
-            }
-        });
-    };
-
-    handleDeleteItem = (id) => {
-        this.setState(({items}) => {
-            const index = items.findIndex((el) => el.id === id);
-            const newState = [...items.slice(0, index), ...items.slice(index + 1)];
-
-            return {
-                items: newState
-            }
-        });
-    };
+class ImageContainer extends Component{
 
     render() {
-        const {page} = this.props;
-        const {items} = this.state;
+        const {page, items} = this.props;
+
         const imageTableConfig = getImageTableConfig({
-            onDeleteItem:this.handleDeleteItem,
-            onAddItem:this.handleAddItem,
+            onDeleteItem:this.props.handleDeleteItem,
+            onAddItem: this.props.handleAddItem,
         });
         return <ImageView items={items} page={page}
                           imageTableConfig={imageTableConfig} />
@@ -47,11 +24,15 @@ class ImageContainer  extends Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        counter: state
+        items: state.image.items
     }
 };
 
-const mapDispatchToProps = { };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleAddItem: () => dispatch(addItem()),
+        handleDeleteItem: (id) => dispatch(deleteItem(id))
+    }
+};
 
-export default  connect(mapStateToProps,
-  mapDispatchToProps)(ImageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer);

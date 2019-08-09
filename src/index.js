@@ -5,19 +5,23 @@ import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './app';
+import configureStore from './utils/storeConfiguration';
 
 import './locale/i18n';
 
 import './index.css';
 
-const store = configureStore()
+const store = configureStore();
 const history = createBrowserHistory();
 
 const renderApp = () =>
-  render(
-    <Provider store={store}> <Router history={history}>
-      <App /></Router>
-    </Provider>,
+  render (
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>
+,
     document.getElementById('root')
   );
 
