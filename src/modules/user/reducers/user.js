@@ -1,18 +1,16 @@
 const initialState = {
-  users: [
-    {
-      id: 'user1',
-      info: {
-        login: '',
-        password: '',
-        position: '',
-        gender: '',
-        avatar: ''
-      }
-    },
-  ],
+  users: [],
   some_data: ''
 };
+
+// {
+//   id: 'user1',
+//   login: '',
+//   password: '',
+//   position: '',
+//   gender: '',
+//   avatar: ''
+// }
 
 export default function userReducer(state = initialState, action) {
   const {users} = state;

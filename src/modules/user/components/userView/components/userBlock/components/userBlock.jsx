@@ -26,8 +26,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UserBlockComponent = () => {
+const UserBlockComponent = (props) => {
   const classes = useStyles();
+
+  const{login, isLoginEditable} = props.userInfo;
 
   return (
     <Card className={classes.root}>
@@ -36,7 +38,7 @@ const UserBlockComponent = () => {
         <Grid container item xs={12} spacing={1}>
           <Grid item xs={5}>
             <Box className={classes.item}>
-              <LoginBlock />
+              <LoginBlock login={login} isLoginEditable={isLoginEditable}/>
               <PasswordBlock />
             </Box>
           </Grid>

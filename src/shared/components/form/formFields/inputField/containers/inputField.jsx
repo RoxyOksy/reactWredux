@@ -7,24 +7,24 @@ export default class InputFieldContainer extends Component {
     value: ''
   };
 
-  handleChangeValue = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-
-  };
+  // handleChangeValue = (e) => {
+  //   // this.setState({
+  //   //   value: e.target.value,
+  //   // });
+  //   return e.target.value
+  // };
 
   render() {
-    const {type, label, } = this.props;
-    const {value} = this.state;
-
+    const {type, label, value} = this.props;
+    // const {value} = this.state;
+console.log('handleChangeValue', this.props);
     return (
       <InputField
         type={type}
         label={label}
         value={value}
 
-        handleChangeValue={this.handleChangeValue}/>
+        handleChangeValue={(e) => this.props.handleChangeValue(e.target.value)}/>
     )
   };
 

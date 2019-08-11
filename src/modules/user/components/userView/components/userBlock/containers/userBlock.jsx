@@ -1,13 +1,27 @@
-import React, {Component} from "react";
+import React from "react";
+import {connect} from "react-redux";
 
 import {UserBlock} from "../components";
+import {getCurrentUser} from "../../../../../selectors/selectors";
 
-export default class UserBlockContainer extends Component {
+const UserBlockContainer = (props) => {
 
-  render() {
-    return(
-      <UserBlock/>
-    )
-  };
-
+  return (
+    <UserBlock userInfo={props.userInfo}/>
+  )
 };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    userInfo: getCurrentUser(state, ownProps.row.id)
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChangeValue: (value) => dispatch(changeValue(value)),
+    // handleToggleVisibility: (login, isLoginEditable) => dispatch(toggleVisability(login, isLoginEditable))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserBlockContainer)

@@ -1,26 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {connect} from "react-redux";
 
 import {LoginBlock} from "../components";
+import {toggleVisability} from '../../../../../actions/action';
 
-export default class LoginBlockContainer extends Component {
+const LoginBlockContainer = (props) => {
 
-  state = {
-    login: 'default login',
-    isLoginEditable: true
-  };
+  // handleToggleVisibility = () => {
+  //   const {login, isLoginEditable} = this.state;
+  //
+  //   if(login){
+  //     this.setState({
+  //       isLoginEditable: !(isLoginEditable),
+  //     });
+  //   }
+  // };
 
-  handleToggleVisibility = () => {
-    const {login, isLoginEditable} = this.state;
 
-    if(login){
-      this.setState({
-        isLoginEditable: !(isLoginEditable),
-      });
-    }
-  };
+const handleChangeValue = (value) => {
+  console.log('value= ', value);
+}
 
-  render() {
-    const {login, isLoginEditable} = this.state;
+    const {login, isLoginEditable} = props;
 
     return (
       <LoginBlock
@@ -28,10 +29,24 @@ export default class LoginBlockContainer extends Component {
 
         login={login}
 
-        handleToggleVisibility={this.handleToggleVisibility}
-        handleChangeValue={this.handleChangeValue}
+        handleToggleVisibility={props.handleToggleVisibility}
+        handleChangeValue={handleChangeValue}
       />
     );
   }
 
-};
+// const mapStateToProps = (state, ownProps) => {
+//   return {
+//     login: state.user.users[0].login,
+//     isLoginEditable: state.user.users[0].isLoginEditable
+//   }
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     // handleChangeValue: () => dispatch(addUser()),
+//     handleToggleVisibility: (login, isLoginEditable) => dispatch(toggleVisability(login, isLoginEditable))
+//   }
+// };
+
+export default LoginBlockContainer
