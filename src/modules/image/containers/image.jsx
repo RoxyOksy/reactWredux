@@ -5,6 +5,7 @@ import {ImageView} from "../components/imageView";
 import {getImageTableConfig} from "./imageTableConfig";
 import {addItem} from '../actions/action';
 import {deleteItem} from '../actions/action';
+import {getItems} from '../selectors/selectors'
 
 import '../../../app/app.module.scss';
 
@@ -23,7 +24,7 @@ class ImageContainer extends Component{
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        items: state.image.items
+        items: getItems(state)
     }
 };
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from "react-redux";
+
 import {UserView} from "../components/userView";
 import {getUserTableConfig} from "./userTableConfig";
 import {addUser} from '../actions/action';
 import {deleteUser} from '../actions/action';
+import {getUsers} from '../selectors/selectors'
 
 import '../../../app/app.module.scss';
 
@@ -25,7 +27,7 @@ const UserContainer = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    users: state.user.users
+    users: getUsers(state)
   }
 };
 
