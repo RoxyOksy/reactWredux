@@ -40,13 +40,16 @@ const SelectFieldComponent = ({inputLabel, onItemChange, name, value, defaultVal
              <em>{defaults('None', get(defaultValue, 'label'))}</em>
            </MenuItem>
            {
-             items.map((item) =>
-               <MenuItem value={get(item, 'value', '')}>
+             items.map((item, index) =>
+               <MenuItem value={get(item, 'value', '')} key={'value'+index}>
                  <Box display={'flex'} alignItems={'center'} flexDirection={'row'}  component="span" m={1}>
-                   {get(item, 'image')&&<ListItemAvatar>
-                     <Avatar>
-                       <img src={get(item, 'image')} alt='avatar' /> </Avatar>
-                   </ListItemAvatar>}
+                   { get(item, 'image')&&
+                     <ListItemAvatar>
+                       <Avatar>
+                         <img src={get(item, 'image')} alt='avatar' />
+                       </Avatar>
+                     </ListItemAvatar> }
+
                    {
                      get(item, 'text')&&<Typography variant="body2" gutterBottom>
                        {get(item, 'text')}

@@ -10,6 +10,7 @@ const addItem = () => {
 };
 
 const deleteItem = (id) => {
+
   return {
     type: 'DELETE_ITEM',
     payload: id

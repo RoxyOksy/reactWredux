@@ -4,10 +4,10 @@ import AddIcon from '@material-ui/icons/Add';
 import {COLORS} from '../../../constants';
 import {BUTTON_SHAPE} from '../../../constants';
 
-export const getImageTableConfig = ({onDeleteItem,onAddItem})=> ({
+export const getUserTableConfig = ({ onDeleteItem, onAddItem }) => ({
   headColumns: [
     { id: 'counter', type: 'counterCell', label: '#' },
-    { id: 'content', type: 'contentCell', label: 'TABLE_HEAD_UPLOAD' },
+    { id: 'content', type: 'contentCell', label: 'TABLE_HEAD_USER_INFO' },
     { id: 'control', type: 'controlCell', label: 'TABLE_HEAD_CONTROL', params:{
       buttons:[
         {

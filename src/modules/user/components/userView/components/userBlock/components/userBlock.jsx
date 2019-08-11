@@ -30,7 +30,7 @@ const UserBlockComponent = () => {
   const classes = useStyles();
 
   return (
-    <Card   className={classes.root}>
+    <Card className={classes.root}>
 
       <Grid container spacing={1}>
         <Grid container item xs={12} spacing={1}>

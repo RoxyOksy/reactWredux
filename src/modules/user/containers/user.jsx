@@ -1,18 +1,39 @@
 import React from 'react';
-
+import {connect} from "react-redux";
 import {UserView} from "../components/userView";
-
-import {withListControl} from "../../../shared/hocs";
+import {getUserTableConfig} from "./userTableConfig";
+import {addUser} from '../actions/action';
+import {deleteUser} from '../actions/action';
 
 import '../../../app/app.module.scss';
 
-const UserContainer = ({onAddItem, onDeleteItem, page, items}) => {
-  return (
-  <UserView users={items}
-            page={page}
+const UserContainer = (props) => {
+  const {page, users} = props;
 
-            onAddUser={onAddItem}
-            onDeleteUser={onDeleteItem} />
+  const userTableConfig = getUserTableConfig({
+    onAddItem: props.handleAddUser,
+    onDeleteItem: props.handleDeleteUser,
+  });
+
+  return (
+    <UserView users={users}
+              page={page}
+
+              tableConfig={userTableConfig}/>
 )};
 
-export default withListControl(UserContainer);
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    users: state.user.users
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleAddUser: () => dispatch(addUser()),
+    handleDeleteUser: (id) => dispatch(deleteUser(id))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);

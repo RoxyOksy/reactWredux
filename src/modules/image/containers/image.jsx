@@ -12,7 +12,6 @@ class ImageContainer extends Component{
 
     render() {
         const {page, items} = this.props;
-
         const imageTableConfig = getImageTableConfig({
             onDeleteItem:this.props.handleDeleteItem,
             onAddItem: this.props.handleAddItem,
