@@ -1,10 +1,11 @@
 import uid from "uid";
 
 const addUser = () => {
+  const unique = uid()
   const newUser = {
-    id: uid(),
+    id: unique,
     isLoginEditable: true,
-    login: 'ddd',
+    login: '',
     password: '',
     position: '',
     gender: '',
@@ -24,22 +25,16 @@ const deleteUser = (id) => {
   };
 };
 
-const toggleVisability = (login, isLoginEditable) => {
-  debugger
-  if(login) {
-      let editable = !(isLoginEditable)
-    }
-
+const editLogin = (login, id) => {
   return {
     type: 'EDIT_LOGIN',
-    payload: this.editable
+    payload: {login, id}
   };
-
-}
+};
 
 
 export {
   addUser,
   deleteUser,
-  toggleVisability
+  editLogin
 }

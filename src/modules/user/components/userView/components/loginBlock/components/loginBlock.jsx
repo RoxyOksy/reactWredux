@@ -19,19 +19,19 @@ const useStyles = makeStyles(theme => ({
 const LoginBlockComponent = (props) => {
   const classes = useStyles();
 
-  const {login} = props;
+  const {userInfo: {login}, handleChangeValue} = props;
 
   return (
     <Box className={classes.root}>
       <ToggleEditor
         InputField={()=> <InputField type={'text'}
                                      label={'login'}
-                                     handleChangeValue={ (value) => props.handleChangeValue(value)}
+                                     value={login}
+                                     handleChangeValue={ handleChangeValue}
         /> }
         ConfirmationButton={ (props) => <Button onClick={props.onClick}><Check/></Button> }
         Typography={ (props) => <Typography onClick={props.onClick}>{login}</Typography> }
       />
-
     </Box>
   );
 };

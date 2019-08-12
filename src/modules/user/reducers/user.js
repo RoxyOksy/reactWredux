@@ -30,13 +30,18 @@ export default function userReducer(state = initialState, action) {
         users: newState
       };
 
-    //
-    // case 'SET_LOGIN':
-    //   return {
-    //     ...state,
-    //     login: action.payload
-    //   };
-    //
+    case 'EDIT_LOGIN':
+      const newLogin = [users.filter((user) => {
+        if(user.id === action.payload.id) {
+           user.login = action.payload.login
+        }
+        })];
+
+      return {
+        ...state,
+        newLogin
+      };
+
     // case 'SET_PASSWORD':
     //   return {
     //     ...state,
