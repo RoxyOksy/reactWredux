@@ -21,15 +21,14 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    // border: '1px solid blue'
+    alignItems: 'center'
   }
 }));
 
 const UserBlockComponent = (props) => {
   const classes = useStyles();
 
-  const{userInfo} = props
+  const{userInfo} = props;
 
   return (
     <Card className={classes.root}>

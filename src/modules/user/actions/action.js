@@ -1,10 +1,8 @@
 import uid from "uid";
 
 const addUser = () => {
-  const unique = uid()
   const newUser = {
-    id: unique,
-    isLoginEditable: true,
+    id: uid(),
     login: '',
     password: '',
     position: '',
@@ -31,7 +29,6 @@ const editLogin = (login, id) => {
     payload: {login, id}
   };
 };
-
 
 export {
   addUser,
