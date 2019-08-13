@@ -5,7 +5,8 @@ import {UserView} from "../components/userView";
 import {getUserTableConfig} from "./userTableConfig";
 import {addUser} from '../actions/action';
 import {deleteUser} from '../actions/action';
-import {getUsers} from '../selectors/selectors'
+import mapStateToProps from '../selectors'
+
 
 import '../../../app/app.module.scss';
 
@@ -24,12 +25,11 @@ const UserContainer = (props) => {
               tableConfig={userTableConfig}/>
 )};
 
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    users: getUsersSelector(state)
-  }
-};
+// const mapStateToProps = (state, ownProps) => {
+//   return {
+//     users: getUsersSelector(state)
+//   }
+// };
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -26,7 +26,7 @@ export default class ImageTableContainer extends Component {
 
   render(){
     const {orderBy, order} = this.state;
-console.log(this.props);
+
     return (
       <Table orderBy={orderBy} order={order} onCreateSort={this.handleCreateSort}
         {...getDefaultTableConfig(this)} {...this.props} />

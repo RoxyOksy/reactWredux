@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import {ImageView} from "../components/imageView";
 import {getImageTableConfig} from "./imageTableConfig";
 import {addItem} from '../actions/action';
 import {deleteItem} from '../actions/action';
-import {getItems} from '../selectors/selectors'
+import mapStateToProps from '../selectors'
 
 class ImageContainer extends Component{
 
@@ -20,12 +20,6 @@ class ImageContainer extends Component{
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        items: getItems(state)
-    }
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
         handleAddItem: () => dispatch(addItem()),
@@ -34,3 +28,15 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer);
+
+// const mapStateToProps = (state, ownProps) => {
+//     return {
+//         items: getItems(state)
+//     }
+// };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     items: getContainerSelector(state)
+//   }
+// };
