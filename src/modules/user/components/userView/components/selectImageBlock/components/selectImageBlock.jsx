@@ -1,4 +1,5 @@
 import React from "react";
+import { withTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { SelectField } from '../../../../../../../shared/components';
@@ -11,12 +12,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SelectImageBlockComponent = () => {
+const SelectImageBlockComponent = ({t}) => {
   const classes = useStyles();
 
   return (
     <SelectField className={classes.root}
-      inputLabel={'Avatar'}
+      inputLabel={t('FORM_FIELD.AVATAR.LABEL')}
       isSelectFieldClearable
       name={'avatar'}
       items={[
@@ -39,4 +40,4 @@ const SelectImageBlockComponent = () => {
     />)
 };
 
-export default SelectImageBlockComponent
+export default withTranslation()(SelectImageBlockComponent)

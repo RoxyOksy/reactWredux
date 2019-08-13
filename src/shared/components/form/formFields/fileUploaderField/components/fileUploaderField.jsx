@@ -25,7 +25,7 @@ const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChang
     <Box className={classes.root}>
       <Button variant="contained" color="primary" className={classes.button}
               onClick={onFileUploaderClick}>
-        {t('UPLOAD_TEXT')}
+        {t('BUTTON.UPLOAD')}
         <CloudUploadIcon className={classes.rightIcon} />
       </Button>
       <input hidden ref={fileInputRef} type="file" accept=".png, .jpg, .jpeg" onChange={onChangeFile} />

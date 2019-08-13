@@ -3,7 +3,6 @@ import React from "react";
 import {InputField} from "../components";
 
 const InputFieldContainer = ({type, label, value, handleChangeValue}) => {
-
     return (
       <InputField
         type={type}

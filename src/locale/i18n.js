@@ -4,11 +4,14 @@ import { initReactI18next } from 'react-i18next';
 // import Backend from 'i18next-xhr-backend';
 // import LanguageDetector from 'i18next-browser-languagedetector';
 
-import {EN} from '../constants';
+import {getApplicationLocalisation} from '../constants';
 
 const resources = {
   en: {
-    translation: EN
+    translation: getApplicationLocalisation('EN')
+  },
+  ru: {
+    translation: getApplicationLocalisation('RU')
   }
 };
 
@@ -22,13 +25,12 @@ i18n
   .init({
     resources,
     // fallbackLng: 'en',
-    lng: "en",
+    lng: "ru",
     debug: true,
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     }
   });
-
 
 export default i18n;

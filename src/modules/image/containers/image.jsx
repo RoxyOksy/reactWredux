@@ -7,8 +7,6 @@ import {addItem} from '../actions/action';
 import {deleteItem} from '../actions/action';
 import {getItems} from '../selectors/selectors'
 
-import '../../../app/app.module.scss';
-
 class ImageContainer extends Component{
 
     render() {

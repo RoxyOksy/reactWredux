@@ -6,9 +6,9 @@ import {BUTTON_SHAPE} from '../../../constants';
 
 export const getImageTableConfig = ({onDeleteItem,onAddItem})=> ({
   headColumns: [
-    { id: 'counter', type: 'counterCell', label: '#' },
-    { id: 'content', type: 'contentCell', label: 'TABLE_HEAD_UPLOAD' },
-    { id: 'control', type: 'controlCell', label: 'TABLE_HEAD_CONTROL', params:{
+    { id: 'counter', type: 'counterCell', label: 'COUNTER' },
+    { id: 'content', type: 'contentCell', label: 'UPLOAD' },
+    { id: 'control', type: 'controlCell', label: 'CONTROL', params:{
       buttons:[
         {
           fullWidth: true,
@@ -26,7 +26,7 @@ export const getImageTableConfig = ({onDeleteItem,onAddItem})=> ({
   tableWithAddItemButton:  {
     fullWidth: false,
     onClick: onAddItem,
-    label: 'ADD_TEXT',
+    label: 'ADD',
     icon: AddIcon,
     background: COLORS.PRIMARY_COLOR,
     color: COLORS.PRIMARY_CONTRAST_COLOR,

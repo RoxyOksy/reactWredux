@@ -7,7 +7,7 @@ export default class ToggleEditorContainer extends Component {
     isEditState: true
   };
 
-  handleChangeEditState = (isEditState) =>  this.setState({  isEditState});
+  handleChangeEditState = (isEditState) => this.setState({isEditState});
 
   render() {
     const {InputField, Typography, ConfirmationButton} = this.props;

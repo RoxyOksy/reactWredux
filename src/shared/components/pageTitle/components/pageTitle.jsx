@@ -11,7 +11,7 @@ import styles from "./pageTitle.module.scss";
 const PageTitleComponent = ({title, variant, componentStyle, t}) =>  {
   return (
     <Box as={variant} className={classNames(styles[get(componentStyle, 'size', 'big')], styles[get(componentStyle, 'theme', 'darken')])} >
-      {t(title)}
+      {t(`PAGE_TITLE.${title}`)}
     </Box>
   )};
 

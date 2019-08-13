@@ -26,7 +26,7 @@ const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns, t })=>
                 direction={order}
                 onClick={onCreateSort(column.id)}
               >
-                {t(column.label)}
+                {t(`TABLE.COLUMNS.${column.label}`)}
                 {orderBy === column.id ? (
                   <span className={classes.visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}

@@ -17,7 +17,7 @@ export default class SelectFieldContainer extends Component {
 
   render() {
     const {name, items, inputLabel, defaultValue,isSelectFieldClearable} = this.props;
-    const { value} = this.state;
+    const {value} = this.state;
 
     return(
       <SelectField

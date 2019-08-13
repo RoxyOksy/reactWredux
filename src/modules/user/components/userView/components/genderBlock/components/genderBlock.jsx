@@ -7,6 +7,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
+import { withTranslation } from 'react-i18next';
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -19,26 +21,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const GenderBlockComponent = ({value, handleChange}) => {
+const GenderBlockComponent = ({value, handleChange, t}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Gender</FormLabel>
+        <FormLabel component="legend">{t('FORM_FIELD.GENDER.LABEL')}</FormLabel>
         <RadioGroup
-          aria-label="Gender"
+          aria-label={t('FORM_FIELD.GENDER.LABEL')}
           name="gender1"
           className={classes.group}
           value={value}
           onChange={handleChange}
         >
-          <FormControlLabel value="female" control={<Radio/>} label="Female"/>
-          <FormControlLabel value="male" control={<Radio/>} label="Male"/>
+          <FormControlLabel value="female" control={<Radio/>} label={t('FORM_FIELD.FEMALE.LABEL')} />
+          <FormControlLabel value="male" control={<Radio/>} label={t('FORM_FIELD.MALE.LABEL')}/>
         </RadioGroup>
       </FormControl>
     </div>
   );
 };
 
-export default GenderBlockComponent
+export default withTranslation()(GenderBlockComponent)

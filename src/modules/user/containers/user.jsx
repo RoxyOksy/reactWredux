@@ -27,7 +27,7 @@ const UserContainer = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    users: getUsers(state)
+    users: getUsersSelector(state)
   }
 };
 

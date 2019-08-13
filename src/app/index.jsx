@@ -29,14 +29,14 @@ class AppContainer extends Component {
           <Container fixed>
             <Toolbar>
               <Typography variant="h6" className={appStyles.headerTitle}>
-                {t('ADMIN_PANEL_TEXT')}
+                {t('TEXT.ADMIN_PANEL')}
               </Typography>
 
               {pages.filter((page) => page.menuItem)
                 .map((page) => {
                   return <Button key={page.route} component={Link} to={page.route} onClick={(() => this.forceUpdate())}
                                  className={classNames(appStyles.headerButton, get(window, 'location.pathname') === page.route ? appStyles.active : null)}>
-                    {t(page.menuItem)}
+                    {t(`MENU_ITEM.${page.menuItem}`)}
                   </Button>
                 })}
 
@@ -60,7 +60,7 @@ class AppContainer extends Component {
         <AppBar position="static" color="primary">
           <Container fixed>
             <Toolbar>
-              <Typography>{t('FOOTER_TEXT')}</Typography>
+              <Typography>{t('TEXT.FOOTER')}</Typography>
             </Toolbar>
           </Container>
         </AppBar>

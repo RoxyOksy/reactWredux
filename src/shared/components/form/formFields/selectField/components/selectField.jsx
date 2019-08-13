@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button";
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
+import uid from "uid";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -41,8 +42,8 @@ const SelectFieldComponent = ({inputLabel, onItemChange, name, value, defaultVal
            </MenuItem>
            {
              items.map((item, index) =>
-               <MenuItem value={get(item, 'value', '')} key={'value'+index}>
-                 <Box display={'flex'} alignItems={'center'} flexDirection={'row'}  component="span" m={1}>
+               <MenuItem value={get(item, 'value', '')} key={uid()}>
+                 <Box display={'flex'} alignItems={'center'} flexDirection={'row'} component="span" m={1}>
                    { get(item, 'image')&&
                      <ListItemAvatar>
                        <Avatar>
