@@ -1,12 +1,12 @@
 import {createSelector} from "reselect";
 
-const getItemsSelector = (state) => {
-  return state.image.items
+const getImagesSelector = (state) => {
+  return state.image.images
 };
 
 export default createSelector(
-  [getItemsSelector],
-  (items) => {
-    return {items}
+  [getImagesSelector],
+  (images) => {
+    return {images}
   }
 );

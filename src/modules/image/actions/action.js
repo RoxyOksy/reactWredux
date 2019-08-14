@@ -1,23 +1,29 @@
 import uid from "uid";
 
-const addItem = () => {
-  const newItem = {id: uid()};
-
+export const addItem = () => {
   return {
-    type: 'ADD_ITEM',
-    payload: newItem
+    type: 'ADD_IMAGE_ITEM',
+    payload: {
+      id: uid(),
+      imageSrc: null
+    }
   }
 };
 
-const deleteItem = (id) => {
+export const deleteItem = (id) => {
 
   return {
-    type: 'DELETE_ITEM',
+    type: 'DELETE_IMAGE_ITEM',
     payload: id
   };
 };
 
-export {
-  addItem,
-  deleteItem
-}
+export const addImage = ({id,imageSrc}) => {
+
+  return {
+    type: 'ADD_IMAGE',
+    payload: {id,imageSrc}
+  };
+};
+
+

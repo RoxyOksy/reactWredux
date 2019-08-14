@@ -2,20 +2,32 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 
 import {ImageView} from "../components/imageView";
+import {addItem,deleteItem, addImage} from '../actions/action';
+
+import mapStateToProps from '../selectors'
+
 import {getImageTableConfig} from "./imageTableConfig";
 import {addItem} from '../actions/action';
 import {deleteItem} from '../actions/action';
 import mapStateToProps from '../selectors'
 
-class ImageContainer extends Component{
+class ImageContainer extends Component {
 
     render() {
-        const {page, items} = this.props;
-        const imageTableConfig = getImageTableConfig({
-            onDeleteItem:this.props.handleDeleteItem,
-            onAddItem: this.props.handleAddItem,
-        });
-        return <ImageView items={items} page={page}
+      const {page, images, handleDeleteItem, handleAddItem, handleAddImage} = this.props;
+
+      const imageFormConfig = getImageFormConfig({ onAddImage: handleAddImage });
+
+
+      const imageTableConfig = getImageTableConfig({
+        onDeleteItem:handleDeleteItem,
+        onAddItem: handleAddItem,
+
+        getImageFormBlock: (props)=>{
+          return <FormBlock formConfig={imageFormConfig} {...props} />}
+      });
+
+        return <ImageView images={images} page={page}
                           imageTableConfig={imageTableConfig} />
     }
 }
@@ -23,20 +35,9 @@ class ImageContainer extends Component{
 const mapDispatchToProps = (dispatch) => {
     return {
         handleAddItem: () => dispatch(addItem()),
-        handleDeleteItem: (id) => dispatch(deleteItem(id))
+        handleDeleteItem: (id) => dispatch(deleteItem(id)),
+        handleAddImage: ({id, imageSrc}) => dispatch(addImage({id, imageSrc})),
     }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer);
-
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//         items: getItems(state)
-//     }
-// };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     items: getContainerSelector(state)
-//   }
-// };

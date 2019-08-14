@@ -6,12 +6,17 @@ import {ImagePreviewField} from "../../imagePreviewField";
 
 import styles from './imageField.module.scss';
 
-const ImageFieldComponent = ({image, isFileUploaderVisible, onDelete, onLoadPreview}) => (
+const ImageFieldComponent = (props) => {
+const {imageSrc, id, onDelete, onLoadPreview} = props;
+
+  return(
+
     <Box className={styles.imageField}>
-      { isFileUploaderVisible ?
-        <FileUploaderField onSelect={onLoadPreview}/> :
-        <ImagePreviewField src={image} onDelete={onDelete}/> }
+      { !imageSrc ?
+        <FileUploaderField id={id} imageSrc={imageSrc} onSelect={onLoadPreview}/> :
+        <ImagePreviewField imageSrc={imageSrc} onDelete={onDelete}/> }
     </Box>
-  );
+
+)};
 
 export default ImageFieldComponent
