@@ -11,7 +11,7 @@ const ImageViewComponent = ( {imageTableConfig, page, images} ) => {
   return (
   <Box display={'flex'} flexDirection={'column'} flex={1} className="App">
     <PageTitle componentStyle={{theme:'darken', size: 'big'}} title={get(page,'title')} variant={'h1'} />
-    <Table items={images} tableConfig={imageTableConfig} />
+    <Table items={images} page={page} tableConfig={imageTableConfig} />
   </Box>
 )};
 

@@ -9,7 +9,7 @@ const InputFieldContainer = ({type, label, value, handleChangeValue}) => {
         label={label}
         value={value}
 
-        handleChangeValue={(e) => handleChangeValue(e.target.value)}
+        // handleChangeValue={(e) => handleChangeValue(e.target.value)}
       />
     )
 };

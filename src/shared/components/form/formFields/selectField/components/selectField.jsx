@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SelectFieldComponent = ({inputLabel, onItemChange, name, value, defaultValue, items, isSelectFieldClearable}) =>
+const SelectFieldComponent = ({label, onItemChange, name, value, defaultValue, items, isSelectFieldClearable}) =>
 {
   const classes = useStyles();
 
@@ -29,7 +29,7 @@ const SelectFieldComponent = ({inputLabel, onItemChange, name, value, defaultVal
 
       <FormControl className={classes.formControl}>
 
-         { inputLabel && <InputLabel htmlFor="age-customized-select">{inputLabel}</InputLabel> }
+         { label && <InputLabel htmlFor="age-customized-select">{label}</InputLabel> }
          <Select  value={value}
                   inputProps={{
                     name,

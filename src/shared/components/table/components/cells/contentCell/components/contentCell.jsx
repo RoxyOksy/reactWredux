@@ -4,7 +4,7 @@ import {translate} from "../../../../../../helpers";
 
 const ContentCellComponent = (props) => {
  return <>
-  {get(props,'params.children',()=>translate('TEXT.NO_DATA'))(props)}
+  {get(props,'params.children',() => translate('TEXT.NO_DATA'))(props)}
  </>
 };
 
