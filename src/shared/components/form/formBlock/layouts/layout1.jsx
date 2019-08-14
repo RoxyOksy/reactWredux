@@ -4,12 +4,9 @@ import get from "lodash/get";
 
 import {getFormField} from "../formBlock";
 
-
-
-
 const Layout1Component = (props) => {
 
-  console.log('data',props.data);
+  console.log('data', props.data);
   return (
     <Box display={'flex'} flexDirection={'column'} width={1} flex={1} >
       {get(props,'formConfig.position4')&& <Box display={'flex'} flexDirection={'column'} width={1} flex={1} >
@@ -18,7 +15,6 @@ const Layout1Component = (props) => {
 
             return getFormField({formField, data:props.data})})
         }
-
       </Box>}
     </Box>
   );

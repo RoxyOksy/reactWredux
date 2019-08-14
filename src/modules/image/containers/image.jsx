@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 
 import {ImageView} from "../components/imageView";
-import {addItem,deleteItem, addImage} from '../actions/action';
+import {addImageItem, deleteImageItem, addImage} from '../actions/action';
 
 import mapStateToProps from '../selectors'
 
@@ -14,14 +14,14 @@ import {FormBlock} from "../../../shared/components/form/formBlock";
 class ImageContainer extends Component {
 
     render() {
-      const {page, images, handleDeleteItem, handleAddItem, handleAddImage} = this.props;
+      const {page, images, handleDeleteImageItem, handleAddImageItem, handleAddImage} = this.props;
 
       const imageFormConfig = getImageFormConfig({ onAddImage: handleAddImage });
 
 
       const imageTableConfig = getImageTableConfig({
-        onDeleteItem:handleDeleteItem,
-        onAddItem: handleAddItem,
+        onAddImageItem: handleAddImageItem,
+        onDeleteImageItem: handleDeleteImageItem,
 
         getImageFormBlock: (props)=>{
           return <FormBlock formConfig={imageFormConfig} {...props} />}
@@ -34,8 +34,8 @@ class ImageContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleAddItem: () => dispatch(addItem()),
-        handleDeleteItem: (id) => dispatch(deleteItem(id)),
+        handleAddImageItem: () => dispatch(addImageItem()),
+        handleDeleteImageItem: (id) => dispatch(deleteImageItem(id)),
         handleAddImage: ({id, imageSrc}) => dispatch(addImage({id, imageSrc})),
     }
 };
