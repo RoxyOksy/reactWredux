@@ -1,3 +1,7 @@
+import i18n from 'i18next';
+
+export const translate =(phraseToTranslate) => i18n.t(phraseToTranslate)
+
 export const desc =(a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -6,7 +10,7 @@ export const desc =(a, b, orderBy) => {
     return 1;
   }
   return 0;
-}
+};
 
 export const stableSort =(array, cmp) =>{
   const stabilizedThis = array.map((el, index) => [el, index]);
@@ -16,8 +20,8 @@ export const stableSort =(array, cmp) =>{
     return a[1] - b[1];
   });
   return stabilizedThis.map(el => el[0]);
-}
+};
 
 export const getSorting = (order, orderBy) => {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
-}
+};

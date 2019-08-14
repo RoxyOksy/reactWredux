@@ -5,9 +5,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {lighten} from "@material-ui/core/styles";
-import { withTranslation } from 'react-i18next';
-
-import '../../../../locale/i18n';
 
 const useStyles = makeStyles((theme) => {
 
@@ -44,26 +41,26 @@ const ButtonComponent = ({onClick, shape, label, icon, fullWidth, color, backgro
         return (
           <Button color="primary" variant="contained" size={size} fullWidth={fullWidth} className={classes.button} onClick={onClick}>
             { icon&&<IconButton/> }
-            { label&&<Typography>{t(`BUTTON.${label}`)}</Typography> }
+            { label&&<Typography>{label}</Typography> }
           </Button>
         );
       case 'circle' :
         return (
           <Fab onClick={onClick} color="primary" className={classes.button}>
             { icon&&<IconButton/> }
-            {label&&<Typography>{t(`BUTTON.${label}`)}</Typography> }
+            { label&&<Typography>{label}</Typography> }
           </Fab>
         );
       default: return (
         <Button color="primary" variant="contained" fullWidth={fullWidth} className={classes.button} onClick={onClick}>
           { icon&&<IconButton/> }
-          { label&&<Typography>{t(`BUTTON.${label}`)}</Typography> }
+          { label&&<Typography>{label}</Typography> }
         </Button>
       );
     }
   };
 
-  const ButtonForm = getButtonForm(shape)
+  const ButtonForm = getButtonForm(shape);
 
   return (
     <Box className={classes.root}>
@@ -72,4 +69,4 @@ const ButtonComponent = ({onClick, shape, label, icon, fullWidth, color, backgro
   );
 };
 
-export default withTranslation()(ButtonComponent)
+export default ButtonComponent

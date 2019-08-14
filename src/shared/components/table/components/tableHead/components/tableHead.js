@@ -4,13 +4,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import {withTranslation} from 'react-i18next';
-
-import '../../../../../../locale/i18n';
 
 import {useTableHeadStyle} from './tableHead.style';
 
-const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns, t })=> {
+const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns })=> {
 
   const classes = useTableHeadStyle();
     return (
@@ -26,7 +23,7 @@ const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns, t })=>
                 direction={order}
                 onClick={onCreateSort(column.id)}
               >
-                {t(`TABLE.COLUMNS.${column.label}`)}
+                {column.label}
                 {orderBy === column.id ? (
                   <span className={classes.visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -40,5 +37,5 @@ const TableHeadComponent = ( { order, orderBy, onCreateSort, headColumns, t })=>
     );
 };
 
-export default withTranslation()(TableHeadComponent)
+export default TableHeadComponent
 

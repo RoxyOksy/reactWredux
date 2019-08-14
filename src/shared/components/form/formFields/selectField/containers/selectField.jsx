@@ -12,7 +12,7 @@ export default class SelectFieldContainer extends Component {
       ...prevState,
       value,
     }))
-  }
+  };
 
 
   render() {

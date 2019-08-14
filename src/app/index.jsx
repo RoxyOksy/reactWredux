@@ -8,11 +8,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import {withTranslation} from 'react-i18next';
 
-import '../locale/i18n';
 import {pages} from "../utils/routeConfiguration.js"
 import {NotFoundPageBlock} from "../modules/uniquePage/notFoundPageBlock";
+import {translate} from "../shared/helpers";
 
 import appStyles from './app.module.scss';
 
@@ -21,22 +20,20 @@ import appStyles from './app.module.scss';
 class AppContainer extends Component {
 
   render() {
-    const { t } = this.props;
-
     return (
       <Box className={appStyles.root}>
         <AppBar position="fixed">
           <Container fixed>
             <Toolbar>
               <Typography variant="h6" className={appStyles.headerTitle}>
-                {t('TEXT.ADMIN_PANEL')}
+                {translate('TEXT.ADMIN_PANEL')}
               </Typography>
 
               {pages.filter((page) => page.menuItem)
                 .map((page) => {
                   return <Button key={page.route} component={Link} to={page.route} onClick={(() => this.forceUpdate())}
                                  className={classNames(appStyles.headerButton, get(window, 'location.pathname') === page.route ? appStyles.active : null)}>
-                    {t(`MENU_ITEM.${page.menuItem}`)}
+                    {page.menuItem}
                   </Button>
                 })}
 
@@ -60,7 +57,7 @@ class AppContainer extends Component {
         <AppBar position="static" color="primary">
           <Container fixed>
             <Toolbar>
-              <Typography>{t('TEXT.FOOTER')}</Typography>
+              <Typography>{translate('TEXT.FOOTER')}</Typography>
             </Toolbar>
           </Container>
         </AppBar>
@@ -69,5 +66,5 @@ class AppContainer extends Component {
   };
 }
 
-export default withTranslation()(AppContainer);
+export default AppContainer;
 

@@ -4,9 +4,7 @@ import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-import {withTranslation} from 'react-i18next';
-
-import '../../../../../../locale/i18n';
+import {translate} from "../../../../../../shared/helpers";
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -25,7 +23,7 @@ const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChang
     <Box className={classes.root}>
       <Button variant="contained" color="primary" className={classes.button}
               onClick={onFileUploaderClick}>
-        {t('BUTTON.UPLOAD')}
+        {translate('BUTTON.UPLOAD')}
         <CloudUploadIcon className={classes.rightIcon} />
       </Button>
       <input hidden ref={fileInputRef} type="file" accept=".png, .jpg, .jpeg" onChange={onChangeFile} />
@@ -33,4 +31,4 @@ const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChang
   );
 };
 
-export default withTranslation()(FileUploaderFieldComponent)
+export default FileUploaderFieldComponent

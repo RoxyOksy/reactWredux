@@ -1,8 +1,8 @@
 import React from "react";
-import { withTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
-import { SelectField } from '../../../../../../../shared/components';
+import {makeStyles} from '@material-ui/core/styles';
+import {SelectField} from '../../../../../../../shared/components';
+import {translate} from "../../../../../../../shared/helpers";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SelectImageBlockComponent = ({t}) => {
+const SelectImageBlockComponent = () => {
   const classes = useStyles();
 
   return (
     <SelectField className={classes.root}
-      inputLabel={t('FORM_FIELD.AVATAR.LABEL')}
+      inputLabel={translate('FORM_FIELD.AVATAR.LABEL')}
       isSelectFieldClearable
       name={'avatar'}
       items={[
@@ -40,4 +40,4 @@ const SelectImageBlockComponent = ({t}) => {
     />)
 };
 
-export default withTranslation()(SelectImageBlockComponent)
+export default SelectImageBlockComponent

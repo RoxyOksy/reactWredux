@@ -4,9 +4,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Check from '@material-ui/icons/Check';
 import {makeStyles} from '@material-ui/core/styles';
-import { withTranslation } from 'react-i18next';
 
 import {InputField, ToggleEditor} from '../../../../../../../shared/components';
+
+import {translate} from "../../../../../../../shared/helpers";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,13 +20,13 @@ const useStyles = makeStyles(theme => ({
 const LoginBlockComponent = (props) => {
   const classes = useStyles();
 
-  const {userInfo: {login}, handleChangeValue, t} = props;
+  const {userInfo: {login}, handleChangeValue} = props;
 
   return (
     <Box className={classes.root}>
       <ToggleEditor
         InputField={()=> <InputField type={'text'}
-                                     label={t('FORM_FIELD.LOGIN.LABEL')}
+                                     label={translate('FORM_FIELD.LOGIN.LABEL')}
                                      value={login}
                                      handleChangeValue={handleChangeValue}
 
@@ -37,4 +38,4 @@ const LoginBlockComponent = (props) => {
   );
 };
 
-export default withTranslation()(LoginBlockComponent)
+export default LoginBlockComponent
