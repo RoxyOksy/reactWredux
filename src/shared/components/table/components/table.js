@@ -33,18 +33,18 @@ const TableComponent =  ({ items, onCreateSort, orderBy, addItemButton, order, c
             />
             <TableBody>
               {stableSort(items, getSorting(order, orderBy))
-                .map((row, rowIndex) => {
+                .map((rowData, rowIndex) => {
 
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id} counter={rowIndex}>
+                    <TableRow hover role="checkbox" tabIndex={-1} key={rowData.id} counter={rowIndex}>
                       {
                         headColumns.map((headColumn, index)=>{
                           const CellComponent = cellComponents[headColumn.type];
-                          const labelId = `enhanced-table-checkbox-${row.id}${index}`;
+                          const labelId = `enhanced-table-checkbox-${rowData.id}${index}`;
                           let counter = rowIndex+1;
 
-                          return <TableCell id={labelId} key={`${row.id}${index}`} >
-                            <CellComponent row={row} {...headColumn} counter={counter} />
+                          return <TableCell id={labelId} key={`${rowData.id}${index}`} >
+                            <CellComponent data={rowData} {...headColumn} counter={counter} />
                           </TableCell>
                         })
                       }

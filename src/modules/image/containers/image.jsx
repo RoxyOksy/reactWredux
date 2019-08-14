@@ -7,9 +7,9 @@ import {addItem,deleteItem, addImage} from '../actions/action';
 import mapStateToProps from '../selectors'
 
 import {getImageTableConfig} from "./imageTableConfig";
-import {addItem} from '../actions/action';
-import {deleteItem} from '../actions/action';
-import mapStateToProps from '../selectors'
+import {getFormConfig as getImageFormConfig} from "./imageFormConfig";
+
+import {FormBlock} from "../../../shared/components/form/formBlock";
 
 class ImageContainer extends Component {
 

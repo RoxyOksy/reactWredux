@@ -1,13 +1,16 @@
+import React from "react";
 import Clear from "@material-ui/icons/Clear";
 import AddIcon from '@material-ui/icons/Add';
 
 import {COLORS} from '../../../constants';
 import {BUTTON_SHAPE} from '../../../constants';
 
-export const getImageTableConfig = ({onDeleteItem,onAddItem})=> ({
+export const getImageTableConfig = ({onDeleteItem,onAddItem,getImageFormBlock})=> ({
   headColumns: [
     { id: 'counter', type: 'counterCell', label: 'COUNTER' },
-    { id: 'content', type: 'contentCell', label: 'UPLOAD' },
+    { id: 'content', type: 'contentCell', label: 'UPLOAD', params:{
+        children: (props)=>getImageFormBlock(props)
+      }},
     { id: 'control', type: 'controlCell', label: 'CONTROL', params:{
       buttons:[
         {

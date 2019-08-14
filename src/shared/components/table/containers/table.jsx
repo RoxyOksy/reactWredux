@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {Table} from '../components'
 import {getDefaultTableConfig} from './defaultTableConfig'
 
-export default class ImageTableContainer extends Component {
+export default class TableContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
