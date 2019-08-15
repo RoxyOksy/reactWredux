@@ -5,7 +5,8 @@ export const getFormConfig =({ onAddImage }) => ({
       {
         label: null,
         type: 'image',
-        params: {onAddImage}
+        onChange: onAddImage,
+        params: {withConfirmation: true}
       },
     ]
   },

@@ -7,10 +7,9 @@ import {ImagePreviewField} from "../../imagePreviewField";
 import styles from './imageField.module.scss';
 
 const ImageFieldComponent = (props) => {
-const {imageSrc, id, onDelete, onLoadPreview} = props;
+  const {imageSrc, id, onDelete, onLoadPreview} = props;
 
   return(
-
     <Box className={styles.imageField}>
       { !imageSrc ?
         <FileUploaderField id={id} imageSrc={imageSrc} onSelect={onLoadPreview}/> :

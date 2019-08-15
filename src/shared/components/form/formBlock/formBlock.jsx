@@ -12,45 +12,53 @@ import {Layout1} from "./layouts";
 export const getFormField = (props)=>{
   const {formField, data} = props;
 
+  const key = get(data,'id');
   const type = get(formField,'type','text');
   const label = get(formField,'label','');
   const placeholder = get(formField,'params.placeholder','');
   const name = get(formField,'params.name','');
   const radioButtons = get(formField,'params.radioButtons',[]);
   const handleChangeValue = get(formField,'onChange',null);
-  console.log(444444444444);
-  console.log(props);
-  console.log(5555555555);
 
   switch(type){
     case 'image':
-      return <ImageField key={get(data,'id')} data={data} formField={formField} />;
+      return <ImageField key={get(data,'id')} data={data} handleChangeValue={handleChangeValue} />;
+
+    case 'select' :
+      return <SelectField isSelectFieldClearable
+
+                          key={key}
+                          label={label}
+                          name={name}
+                          // items={}
+      />;
+
+    case 'radio' :
+      return <RadioField label={label} value={data.value} radioButtons={radioButtons} handleChangeValue={handleChangeValue}/>
 
     case 'text' :
     case 'password':
     default:
       // return <InputField handleChangeValue={} label={} type={} value={} />
-      return <ToggleEditor
-        InputField={()=> <InputField type={type}
-                                     label={label}
-                                     value={data.login}
-                                     placeholder={placeholder}
-                                     handleChangeValue={data.handleChangeValue}
-        /> }
-        ConfirmationButton={ (props) => <Button onClick={props.onClick}><Check/></Button> }
-        Typography={ (props) => <Typography onClick={props.onClick}>{data.login}</Typography> }
+      return <InputField key={key}
+                         type={type}
+                         label={label}
+                         value={data.login}
+                         placeholder={placeholder}
+                         handleChangeValue={handleChangeValue}
       />;
-
-    case 'select' :
-      return <SelectField isSelectFieldClearable
-
-                          label={label}
-                          name={name}
-                          // items={}
-      />;
-    case 'radio' :
-      return <RadioField label={label} value={data.value} radioButtons={radioButtons} handleChangeValue={handleChangeValue}/>
   }
+};
+
+export const getFormToggleField = (props) => {
+  const isToggleField = (get(props,'formField.params.withConfirmation',true));
+
+  return isToggleField ?
+    <ToggleEditor
+      InputField={() => getFormField(props) }
+      ConfirmationButton={ (props) => <Button onClick={props.onClick}><Check/></Button> }
+      Typography={ (props) => <Typography onClick={props.onClick}>{props.data.login}</Typography> }
+    /> : getFormField(props)
 };
 
 const getLayout = ({formConfig, data})=>{

@@ -15,14 +15,13 @@ class ImageContainer extends Component {
     render() {
       const {page, images, handleDeleteImageItem, handleAddImageItem, handleAddImage} = this.props;
 
-      const imageFormConfig = getImageFormConfig({ onAddImage: handleAddImage });
-
+      const imageFormConfig = getImageFormConfig( {onAddImage: handleAddImage} );
 
       const imageTableConfig = getImageTableConfig({
         onAddImageItem: handleAddImageItem,
         onDeleteImageItem: handleDeleteImageItem,
 
-        getImageFormBlock: (props)=>{
+        getImageFormBlock: (props) => {
           return <FormBlock formConfig={imageFormConfig} {...props} />}
       });
 
