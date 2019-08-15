@@ -7,9 +7,9 @@ import Check from '@material-ui/icons/Check';
 import {ImageField, SelectField} from "../..";
 import {InputField} from "../formFields/inputField";
 import {ToggleEditor} from "../toggleEditor";
+import {RadioField} from  "../formFields/radioField";
 
 import {Layout1} from "./layouts";
-import {translate} from "../../../helpers";
 
 export const getFormField = (props)=>{
   const {formField, data} = props;
@@ -18,6 +18,8 @@ export const getFormField = (props)=>{
   const label = get(formField,'label','');
   const placeholder = get(formField,'params.placeholder','');
   const name = get(formField,'params.name','');
+  const radioButtons = get(formField,'params.radioButtons',[]);
+  const handleChangeValue = get(formField,'onChange',null);
   console.log(444444444444);
   console.log(props);
   console.log(5555555555);
@@ -48,7 +50,7 @@ export const getFormField = (props)=>{
                           // items={}
       />;
     case 'radio' :
-      return
+      return <RadioField label={label} value={data.value} radioButtons={radioButtons} handleChangeValue={handleChangeValue}/>
   }
 };
 

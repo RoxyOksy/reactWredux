@@ -8,12 +8,14 @@ export const getFormConfig =({ callback }) => ({
         label: translate('FORM_FIELD.LOGIN.LABEL'),
         type: 'text',
         classNames: 'loginBlock',
+        onChange: () => (console.log('LOGIN was changed')),
         params: {placeholder: 'FORM_FIELD.LOGIN.PLACEHOLDER', withConfirmation: true}
       },
       {
         label: translate('FORM_FIELD.PASSWORD.LABEL'),
         type: 'password',
         classNames: 'passwordBlock',
+        onChange: () => (console.log('PASSWORD was changed')),
         params: {placeholder: translate('FORM_FIELD.PASSWORD.PLACEHOLDER'), withConfirmation: true}
       }
     ]
@@ -25,12 +27,14 @@ export const getFormConfig =({ callback }) => ({
         label: translate('FORM_FIELD.POSITION.LABEL'),
         type: 'text',
         classNames: 'positionBlock',
+        onChange: () => (console.log('POSITION was changed')),
         params: {placeholder: translate('FORM_FIELD.POSITION.PLACEHOLDER'), withConfirmation: true}
       },
       {
         label: translate('FORM_FIELD.AVATAR.LABEL'),
         type: 'select',
         classNames: 'avatarBlock',
+        onChange: () => (console.log('AVATAR was changed')),
         params: {name: 'avatar', placeholder: translate('FORM_FIELD.AVATAR.PLACEHOLDER'), withConfirmation: false}
       }
     ]
@@ -41,7 +45,15 @@ export const getFormConfig =({ callback }) => ({
         label: translate('FORM_FIELD.GENDER.LABEL'),
         type: 'radio',
         classNames: 'genderBlock',
-        params: {placeholder: '', radiobuttons: [{label: 'male', isDefault: true}, {label: 'female'}], withConfirmation: false}
+        onChange: () => (console.log('GENDER was changed')),
+        params: {
+          placeholder: '',
+          radioButtons: [
+            {label: translate('FORM_FIELD.MALE.LABEL'), isDefault: false},
+            {label: translate('FORM_FIELD.FEMALE.LABEL'), isDefault: true}
+          ],
+          withConfirmation: false
+        }
       }
     ]
   },
