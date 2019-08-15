@@ -1,6 +1,6 @@
 import {Image} from "../modules/image";
 import {User} from "../modules/user"
-import {translate} from "../shared/helpers";
+import {translate} from "shared/helpers";
 
 export const pages = [
   {

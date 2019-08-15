@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
+import {Box} from "shared/vendors";
 
 import {FileUploaderField} from "../../fileUploaderField";
 import {ImagePreviewField} from "../../imagePreviewField";

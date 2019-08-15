@@ -1,18 +1,9 @@
 import React from "react";
 import {defaults, get} from "lodash";
-
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import { makeStyles } from '@material-ui/core/styles';
 import uid from "uid";
+
+import {Typography, Box, Button, MenuItem, ListItemAvatar, Avatar,
+        FormControl, InputLabel, Select, Clear, makeStyles} from "shared/vendors";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -64,7 +55,7 @@ const SelectFieldComponent = ({label, onItemChange, name, value, defaultValue, i
 
      </FormControl>
 
-    { isSelectFieldClearable && <Button><CloseIcon onClick={(event) => onItemChange('')} /></Button> }
+    { isSelectFieldClearable && <Button><Clear onClick={(event) => onItemChange('')} /></Button> }
 
   </Box>
   );

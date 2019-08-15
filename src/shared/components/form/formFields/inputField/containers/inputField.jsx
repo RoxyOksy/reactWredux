@@ -4,12 +4,11 @@ import {InputField} from "../components";
 
 const InputFieldContainer = ({type, label, value, handleChangeValue}) => {
     return (
-      <InputField
-        type={type}
-        label={label}
+      <InputField type={type}
+                  label={label}
         value={value}
 
-        // handleChangeValue={(e) => handleChangeValue(e.target.value)}
+      // handleChangeValue={(e) => handleChangeValue(e.target.value)}
       />
     )
 };

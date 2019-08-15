@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 
-import {ImageView} from "../components/imageView";
-import {addImageItem, deleteImageItem, addImage} from '../actions/action';
+import {FormBlock} from "shared/components";
 
-import mapStateToProps from '../selectors'
+import {ImageView} from "../components/imageView";
+import mapStateToProps from '../selectors';
+import {addImageItem, deleteImageItem, addImage} from '../actions/action';
 
 import {getImageTableConfig} from "./imageTableConfig";
 import {getFormConfig as getImageFormConfig} from "./imageFormConfig";
-
-import {FormBlock} from "../../../shared/components/form/formBlock";
 
 class ImageContainer extends Component {
 

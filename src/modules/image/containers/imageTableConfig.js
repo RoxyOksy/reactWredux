@@ -1,9 +1,7 @@
-import Clear from "@material-ui/icons/Clear";
-import AddIcon from '@material-ui/icons/Add';
+import {Add, Clear} from 'shared/vendors';
+import {translate} from 'shared/helpers';
 
-import {COLORS} from '../../../constants';
-import {BUTTON_SHAPE} from '../../../constants';
-import {translate} from '../../../shared/helpers';
+import {COLORS, BUTTON_SHAPE} from 'constants';
 
 export const getImageTableConfig = ({onAddImageItem, onDeleteImageItem, getImageFormBlock})=> ({
   headColumns: [
@@ -30,7 +28,7 @@ export const getImageTableConfig = ({onAddImageItem, onDeleteImageItem, getImage
     fullWidth: false,
     onClick: onAddImageItem,
     label: translate('BUTTON.ADD'),
-    icon: AddIcon,
+    icon: Add,
     background: COLORS.PRIMARY_COLOR,
     color: COLORS.PRIMARY_CONTRAST_COLOR,
     size: 'medium',

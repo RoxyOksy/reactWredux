@@ -1,11 +1,8 @@
 import React from "react";
-import Box from '@material-ui/core/Box';
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Check from '@material-ui/icons/Check';
-import {makeStyles} from '@material-ui/core/styles';
 
-import {InputField, ToggleEditor} from '../../../../../../../shared/components';
+import {Typography, Box, Button, Check, makeStyles} from "shared/vendors";
+
+import {translate} from "shared/helpers";
 
 import {translate} from "../../../../../../../shared/helpers";
 

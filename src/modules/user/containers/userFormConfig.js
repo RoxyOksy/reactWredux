@@ -1,4 +1,4 @@
-import {translate} from '../../../shared/helpers';
+import {translate} from 'shared/helpers';
 
 export const getFormConfig =({ callback }) => ({
   layout: 'layout1',

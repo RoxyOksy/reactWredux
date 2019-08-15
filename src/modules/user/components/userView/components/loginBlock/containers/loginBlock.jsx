@@ -3,10 +3,8 @@ import {connect} from "react-redux";
 
 import {LoginBlock} from "../components";
 import {editLogin} from '../../../../../actions/action';
-// import {getValue} from "../../../../../selectors";
 
 const LoginBlockContainer = (props) => {
-
     return (
       <LoginBlock
         userInfo={props.userInfo}

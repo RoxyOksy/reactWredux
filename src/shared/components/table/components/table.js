@@ -1,13 +1,10 @@
 import React from "react";
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import Box from '@material-ui/core/Box';
+import {Box, Table, TableBody, TableRow, TableCell} from "shared/vendors";
 
 import {TableHead} from './tableHead';
-import {getSorting, stableSort} from '../../../helpers';
+
+import {getSorting, stableSort} from 'shared/helpers';
 
 import {useTableStyle} from './table.style';
 

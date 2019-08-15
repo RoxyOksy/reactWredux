@@ -1,10 +1,9 @@
 import React from 'react';
 import get from 'lodash/get';
-import Box from '@material-ui/core/Box';
 
-import {PageTitle, Table} from "../../../../shared/components";
+import {Box} from 'shared/vendors';
 
-import '../../../../app/app.module.scss';
+import {PageTitle, Table} from "shared/components";
 
 const UserViewComponent = ({ users, page, tableConfig }) => {
   return (

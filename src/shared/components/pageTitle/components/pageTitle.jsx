@@ -1,7 +1,8 @@
 import React from "react";
-import classNames from "classnames";
 import get from "lodash/get";
-import Box from '@material-ui/core/Box';
+import classNames from "classnames";
+
+import {Box} from "shared/vendors";
 
 import styles from "./pageTitle.module.scss";
 

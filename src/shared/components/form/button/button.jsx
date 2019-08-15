@@ -1,10 +1,6 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import Fab from "@material-ui/core/Fab";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {lighten} from "@material-ui/core/styles";
+
+import {Typography, Box, Button, Fab, makeStyles, lighten} from "shared/vendors";
 
 const useStyles = makeStyles((theme) => {
 

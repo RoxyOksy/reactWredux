@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
 
+import {FormBlock} from "shared/components";
+
 import {UserView} from "../components/userView";
-import {FormBlock} from "../../../shared/components";
-import {getTableConfig as getUserTableConfig} from "./userTableConfig";
-import {getFormConfig as getUserFormConfig} from "./userFormConfig";
 import {addUser} from '../actions/action';
 import {deleteUser} from '../actions/action';
 import mapStateToProps from '../selectors';
 
-import '../../../app/app.module.scss';
+import {getTableConfig as getUserTableConfig} from "./userTableConfig";
+import {getFormConfig as getUserFormConfig} from "./userFormConfig";
 
 const UserContainer = (props) => {
   const {page, users} = props;

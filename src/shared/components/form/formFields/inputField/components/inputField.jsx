@@ -1,10 +1,6 @@
 import React from "react";
 
-import FormControl from "@material-ui/core/FormControl";
-import TextField from "@material-ui/core/TextField";
-import Box from "@material-ui/core/Box";
-
-import { makeStyles } from '@material-ui/core/styles';
+import {Box, TextField, FormControl, makeStyles} from "shared/vendors";
 
 const useStyles = makeStyles(theme => ({
   formControl: {

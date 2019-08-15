@@ -1,6 +1,7 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
 import get from "lodash/get";
+
+import {Box} from "shared/vendors";
 
 import {getFormField} from "../formBlock";
 

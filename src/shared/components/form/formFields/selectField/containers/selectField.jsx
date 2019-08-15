@@ -35,7 +35,7 @@ export default class SelectFieldContainer extends Component {
 // !!-- END --!!
 
   render() {
-    const {name, label, defaultValue,isSelectFieldClearable} = this.props;
+    const {name, label, defaultValue, isSelectFieldClearable} = this.props;
     const {value} = this.state;
 
     return(

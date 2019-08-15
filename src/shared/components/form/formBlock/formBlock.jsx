@@ -1,13 +1,11 @@
 import React from "react";
 import get from "lodash/get";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Check from '@material-ui/icons/Check';
 
-import {ImageField, SelectField} from "../..";
-import {InputField} from "../formFields/inputField";
+import {Typography, Button, Check} from "shared/vendors";
+
+import {ImageField, SelectField} from "../../form";
+import {InputField, RadioField} from "../formFields";
 import {ToggleEditor} from "../toggleEditor";
-import {RadioField} from  "../formFields/radioField";
 
 import {Layout1} from "./layouts";
 
@@ -44,8 +42,9 @@ export const getFormField = (props)=>{
       />;
 
     case 'select' :
-      return <SelectField label={label}
-                          isSelectFieldClearable
+      return <SelectField isSelectFieldClearable
+
+                          label={label}
                           name={name}
                           // items={}
       />;

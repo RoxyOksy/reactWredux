@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 
 import {pages} from "../utils/routeConfiguration.js"
 import {NotFoundPageBlock} from "../modules/uniquePage/notFoundPageBlock";
-import {translate} from "../shared/helpers";
+import {translate} from "shared/helpers";
 
 import appStyles from './app.module.scss';
 

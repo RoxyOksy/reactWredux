@@ -15,14 +15,11 @@ export default class ImageFieldContainer extends Component {
     const {data, formField} = this.props;
 
     return(
-      <ImageField
-
-                  id={get(data,'id',null)}
+      <ImageField id={get(data,'id',null)}
                   imageSrc={get(data,'imageSrc',null)}
 
                   onDelete={this.handleDelete}
                   onLoadPreview={get(formField,'params.onAddImage',()=>null)}  />
     )
   };
-
 };

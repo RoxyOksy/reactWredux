@@ -1,9 +1,6 @@
 import React from 'react';
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Clear from "@material-ui/icons/Clear";
 
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import {Box, Button, Clear, makeStyles} from "shared/vendors";
 
 const useStyles = makeStyles(theme => ({
   root: {
