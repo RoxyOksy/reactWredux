@@ -1,19 +1,14 @@
+import get from 'lodash/get';
+
 const initialState = {
   users: [],
   some_data: ''
 };
 
-// {
-//   id: 'user1',
-//   login: '',
-//   password: '',
-//   position: '',
-//   gender: '',
-//   avatar: ''
-// }
-
 export default function userReducer(state = initialState, action) {
   const {users} = state;
+
+  const fieldName = get(action, 'payload.fieldName', '')
 
   switch (action.type) {
     case 'ADD_USER' :
@@ -30,23 +25,27 @@ export default function userReducer(state = initialState, action) {
         users: newState
       };
 
-    case 'EDIT_LOGIN':
-      const newLogin = [users.filter((user) => {
-        if(user.id === action.payload.id) {
-           user.login = action.payload.login
-        }
-        })];
-
+    case 'EDIT_FORM_FIELD_VALUE':
       return {
         ...state,
-        newLogin
+        users: users.map((user) => {
+          if(user.id === action.payload.id) {
+            user[fieldName].value = action.payload.value
+          }
+          return user
+        })
       };
 
-    // case 'SET_PASSWORD':
-    //   return {
-    //     ...state,
-    //     password: action.payload
-    //   };
+    case 'EDIT_FORM_FIELD_STATE':
+      return {
+        ...state,
+        users: users.map((user) => {
+          if(user.id === action.payload.id) {
+            user[fieldName].isEditable = !user[fieldName].isEditable
+          }
+          return user
+        })
+      };
 
     default:
       return state

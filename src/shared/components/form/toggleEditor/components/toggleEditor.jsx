@@ -16,6 +16,7 @@ const ToggleEditorComponent = ({
                                  InputField,
                                  ConfirmationButton,
                                  Typography,
+
                                  onChangeEditState
                                }) => {
 
@@ -23,10 +24,10 @@ const ToggleEditorComponent = ({
 
   return (
     <Box m={1} className={classes.root}>
-      {isEditState?<>
-        <InputField isEditState={(isEditState) => isEditState}/>
-        <ConfirmationButton onClick={()=>onChangeEditState(false) } />
-      </>:<Typography onClick={()=>onChangeEditState(true)}  />}
+      {isEditState ? <>
+        <InputField />
+        <ConfirmationButton onClick={onChangeEditState}/>
+      </> : <Typography onClick={onChangeEditState}  />}
     </Box>
   );
 };

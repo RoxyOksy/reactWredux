@@ -2,13 +2,13 @@ import React from "react";
 
 import {InputField} from "../components";
 
-const InputFieldContainer = ({type, label, value, handleChangeValue}) => {
+const InputFieldContainer = ({id, type, label, name, value, handleChangeValue}) => {
     return (
       <InputField type={type}
                   label={label}
-        value={value}
+                  value={value}
 
-      // handleChangeValue={(e) => handleChangeValue(e.target.value)}
+                  handleChangeValue={(e) => handleChangeValue(id, name, e.target.value)}
       />
     )
 };

@@ -3,11 +3,11 @@ import uid from "uid";
 const addUser = () => {
   const newUser = {
     id: uid(),
-    login: '',
-    password: '',
-    position: '',
-    gender: '',
-    avatar: ''
+    login: {value: '', isEditable: true},
+    password: {value: '', isEditable: true},
+    position: {value: '', isEditable: true},
+    gender: {value: '', isEditable: true},
+    avatar: {value: '', isEditable: true}
   };
 
   return {
@@ -23,15 +23,23 @@ const deleteUser = (id) => {
   };
 };
 
-const editLogin = (login, id) => {
+const editFormFieldValue = (id, fieldName, value) => {
   return {
-    type: 'EDIT_LOGIN',
-    payload: {login, id}
-  };
+    type: `EDIT_FORM_FIELD_VALUE`,
+    payload: {id, fieldName, value}
+  }
+};
+
+const editFormFieldState = (id, fieldName) => {
+  return {
+    type: `EDIT_FORM_FIELD_STATE`,
+    payload: {id, fieldName}
+  }
 };
 
 export {
   addUser,
   deleteUser,
-  editLogin
+  editFormFieldValue,
+  editFormFieldState
 }

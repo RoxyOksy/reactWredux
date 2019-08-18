@@ -1,29 +1,21 @@
-import React, {Component} from "react";
+import React from "react";
 
 import {ToggleEditor} from "../components";
 
-export default class ToggleEditorContainer extends Component {
-  state = {
-    isEditState: true
-  };
+const ToggleEditorContainer = ({id, fieldName, InputField, Typography, ConfirmationButton, isEditState, handleChangeEditState}) => {
+  return (
+    <ToggleEditor
+      isEditState={isEditState}
 
-  handleChangeEditState = (isEditState) => this.setState({isEditState});
+      InputField={InputField}
+      ConfirmationButton={ConfirmationButton}
+      Typography={Typography}
 
-  render() {
-    const {InputField, Typography, ConfirmationButton} = this.props;
-    const {isEditState} = this.state;
+      onChangeEditState={()=> handleChangeEditState(id, fieldName)}
 
-    return(
-      <ToggleEditor
-        isEditState={isEditState}
-
-        InputField={InputField}
-        ConfirmationButton={ConfirmationButton}
-        Typography={Typography}
-
-        onChangeEditState={this.handleChangeEditState}
-      />
-    )
-  };
+    />
+  )
 
 };
+
+export default ToggleEditorContainer
