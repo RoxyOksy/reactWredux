@@ -1,6 +1,6 @@
 import {translate} from 'shared/helpers';
 
-export const getFormConfig =({ onEditValue, onLEditState }) => ({
+export const getFormConfig =({ onEditValue, onEditState }) => ({
   layout: 'layout1',
   position1: {
     formFields: [
@@ -10,7 +10,7 @@ export const getFormConfig =({ onEditValue, onLEditState }) => ({
         type: 'text',
         classNames: 'loginBlock',
         onChange: onEditValue,
-        onConfirm: onLEditState,
+        onConfirm: onEditState,
         params: {placeholder: 'FORM_FIELD.LOGIN.PLACEHOLDER', withConfirmation: true}
       },
       {
@@ -19,7 +19,7 @@ export const getFormConfig =({ onEditValue, onLEditState }) => ({
         type: 'password',
         classNames: 'passwordBlock',
         onChange: onEditValue,
-        onConfirm: onLEditState,
+        onConfirm: onEditState,
         params: {placeholder: translate('FORM_FIELD.PASSWORD.PLACEHOLDER'), withConfirmation: true}
       }
     ]
@@ -33,7 +33,7 @@ export const getFormConfig =({ onEditValue, onLEditState }) => ({
         type: 'text',
         classNames: 'positionBlock',
         onChange: onEditValue,
-        onConfirm: onLEditState,
+        onConfirm: onEditState,
         params: {placeholder: translate('FORM_FIELD.POSITION.PLACEHOLDER'), withConfirmation: true}
       },
       {

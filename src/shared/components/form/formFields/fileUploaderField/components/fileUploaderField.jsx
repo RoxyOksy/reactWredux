@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChangeFile, t}) => {
+const FileUploaderFieldComponent  = ({fileInputRef, onFileUploaderClick, onChangeFile}) => {
   const classes = useStyles();
 
   return (

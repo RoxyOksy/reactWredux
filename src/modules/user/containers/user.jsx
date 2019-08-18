@@ -17,7 +17,7 @@ const UserContainer = (props) => {
 
   const userFormConfig = getUserFormConfig({
     onEditValue: props.handleEditValue,
-    onLEditState: props.handleEditState
+    onEditState: props.handleEditState
   });
 
   const userTableConfig = getUserTableConfig({

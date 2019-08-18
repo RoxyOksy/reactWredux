@@ -11,7 +11,6 @@ import {getImageTableConfig} from "./imageTableConfig";
 import {getFormConfig as getImageFormConfig} from "./imageFormConfig";
 
 class ImageContainer extends Component {
-
     render() {
       const {page, images, handleDeleteImageItem, handleAddImageItem, handleAddImage} = this.props;
 

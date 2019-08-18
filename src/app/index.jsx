@@ -2,12 +2,8 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import {Route, Switch, Link} from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import Box from '@material-ui/core/Box';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
+
+import {Typography, Box, Button, AppBar, Container, Toolbar} from "shared/vendors";
 
 import {pages} from "../utils/routeConfiguration.js"
 import {NotFoundPageBlock} from "../modules/uniquePage/notFoundPageBlock";

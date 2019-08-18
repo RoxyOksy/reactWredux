@@ -5,13 +5,13 @@ import {FileUploaderField} from '../components';
 export default class FileUploaderFieldContainer extends Component {
   fileInputRef = React.createRef();
 
-  handleFileUploaderClick = ()=> this.fileInputRef.current.click();
+  handleFileUploaderClick = () => this.fileInputRef.current.click();
 
   handleChangeFile = (event) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       this.props.onSelect({
-        imageSrc:e.target.result,
+        imageSrc: e.target.result,
         id: this.props.id,
       });
     };
