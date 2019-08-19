@@ -20,8 +20,7 @@ export const getFormField = ({formField, data}) => {
 
   const value = get(data,`${name}.value`, '');
   const id = get(data,'id', '');
-  const key=`${name}${id}`
-  // const isEditState = get(data,`${name}.isEditable`, '');
+  const key=`${name}${id}`;
 
   switch(type){
     case 'image':
@@ -34,10 +33,14 @@ export const getFormField = ({formField, data}) => {
       return <SelectField isSelectFieldClearable
 
                           key={key}
+                          id={id}
                           name={name}
                           label={label}
+                          value={value}
 
                           // items={}
+
+                          handleChangeValue={handleChangeValue}
       />;
 
     case 'radio' :

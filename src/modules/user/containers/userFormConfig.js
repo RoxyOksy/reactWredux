@@ -41,7 +41,8 @@ export const getFormConfig =({ onEditValue, onEditState }) => ({
         label: translate('FORM_FIELD.AVATAR.LABEL'),
         type: 'select',
         classNames: 'avatarBlock',
-        onChange: () => (console.log('AVATAR was changed')),
+        onChange: onEditValue,
+        onConfirm: onEditState,
         params: {placeholder: translate('FORM_FIELD.AVATAR.PLACEHOLDER'), withConfirmation: true}
       }
     ]

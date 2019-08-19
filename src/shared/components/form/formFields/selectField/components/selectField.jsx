@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SelectFieldComponent = ({label, onItemChange, name, value, defaultValue, items, isSelectFieldClearable}) =>
+const SelectFieldComponent = ({isSelectFieldClearable, label, name, value, defaultValue, items, onItemChange}) =>
 {
   const classes = useStyles();
 
@@ -26,7 +26,7 @@ const SelectFieldComponent = ({label, onItemChange, name, value, defaultValue, i
                     name,
                     id: `${name}SelectField`,
                   }}
-                  onChange={(event) => onItemChange( get(event,'target.value'))}
+                  onChange={onItemChange}
          >
            <MenuItem value={defaults('', get(defaultValue, 'value'))}>
              <em>{defaults('None', get(defaultValue, 'label'))}</em>

@@ -1,21 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
+import {get} from "lodash";
 
 import {SelectField} from "../components";
 
-export default class SelectFieldContainer extends Component {
-  state = {
-    value:  ''
-  };
-
-  handleItemChange = (value)=>{
-    this.setState(prevState => ({
-      ...prevState,
-      value,
-    }))
-  };
+const SelectFieldContainer  = ({id, name, label, value, defaultValue, isSelectFieldClearable, handleChangeValue}) => {
 
   // !!-- NEEDS TO BE CHANGED TO REAL ITEMS --!!
- items = [
+ const items = [
    {
      value: 1,
      text: 'value1',
@@ -34,10 +25,6 @@ export default class SelectFieldContainer extends Component {
  ];
 // !!-- END --!!
 
-  render() {
-    const {name, label, defaultValue, isSelectFieldClearable} = this.props;
-    const {value} = this.state;
-
     return(
       <SelectField
         isSelectFieldClearable={isSelectFieldClearable}
@@ -46,10 +33,11 @@ export default class SelectFieldContainer extends Component {
         name={name}
         value={value}
 
-        items={this.items}
+        items={items}
 
-        onItemChange={this.handleItemChange} />
+        onItemChange={(event) => handleChangeValue(id, name, get(event,'target.value', ''))}
+      />
     )
-  };
-
 };
+
+export default SelectFieldContainer
