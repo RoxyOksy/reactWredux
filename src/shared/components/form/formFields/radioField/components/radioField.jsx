@@ -18,7 +18,8 @@ const RadioFieldComponent = ({label, value, radioButtons, handleChangeValue}) =>
         >
           { radioButtons.map((radioButton) => <FormControlLabel key={uid()}
                                                                 label={get(radioButton,'label', translate('TEXT.NO_DATA'))}
-                                                                checked={get(radioButton,'isDefault', false)}
+                                                                value={get(radioButton,'value', translate('TEXT.NO_DATA'))}
+                                                                // checked={get(radioButton,'isDefault', false)}
                                                                 control={<Radio/>}
           /> )}
 

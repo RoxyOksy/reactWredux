@@ -26,7 +26,11 @@ export default (lang) => {
         },
         FEMALE: {
           LABEL: 'Женский'
-        }
+        },
+        OTHER: {
+          LABEL: 'Другой'
+        },
+
       };
 
     case 'EN':
@@ -56,7 +60,10 @@ export default (lang) => {
         },
         FEMALE: {
           LABEL: 'Female'
-        }
+        },
+        OTHER: {
+          LABEL: 'Other'
+        },
       };
   }
 }

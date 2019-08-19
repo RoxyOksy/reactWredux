@@ -54,12 +54,14 @@ export const getFormConfig =({ onEditValue, onEditState }) => ({
         label: translate('FORM_FIELD.GENDER.LABEL'),
         type: 'radio',
         classNames: 'genderBlock',
-        onChange: () => (console.log('GENDER was changed')),
+        onChange: onEditValue,
+        onConfirm: onEditState,
         params: {
           placeholder: '',
           radioButtons: [
-            {label: translate('FORM_FIELD.MALE.LABEL'), isDefault: false},
-            {label: translate('FORM_FIELD.FEMALE.LABEL'), isDefault: true}
+            {label: translate('FORM_FIELD.MALE.LABEL'), value: 'male', isDefault: false},
+            {label: translate('FORM_FIELD.FEMALE.LABEL'), value: 'female', isDefault: true},
+            {label: translate('FORM_FIELD.OTHER.LABEL'), value: 'other', isDefault: false},
           ],
           withConfirmation: true
         }

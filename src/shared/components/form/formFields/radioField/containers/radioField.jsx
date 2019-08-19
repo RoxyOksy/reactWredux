@@ -2,16 +2,14 @@ import React from 'react';
 
 import {RadioField} from '../components'
 
-const RadioFieldContainer = (props) => {
-
- // handleChange = (event) => {
- //   this.setState({
- //   label: event.target.value
- //   });
- // };
-
+const RadioFieldContainer = ({id, name, label, value, radioButtons, handleChangeValue}) => {
   return (
-    <RadioField {...props}/>
+    <RadioField label={label}
+                value={value}
+
+                radioButtons={radioButtons}
+
+                handleChangeValue={(e) => handleChangeValue(id, name, e.target.value)}/>
   );
 };
 

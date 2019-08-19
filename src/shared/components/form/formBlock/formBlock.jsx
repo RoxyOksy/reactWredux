@@ -44,7 +44,9 @@ export const getFormField = ({formField, data}) => {
       />;
 
     case 'radio' :
-      return <RadioField label={label}
+      return <RadioField id={id}
+                         name={name}
+                         label={label}
                          value={value}
 
                          radioButtons={radioButtons}
