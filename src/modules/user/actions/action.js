@@ -7,7 +7,8 @@ const addUser = () => {
     password: {value: '', isEditable: true},
     position: {value: '', isEditable: true},
     gender: {value: '', isEditable: true},
-    avatar: {value: '', isEditable: true}
+    avatar: {value: '', isEditable: true},
+    isUserEditableState: true
   };
 
   return {
