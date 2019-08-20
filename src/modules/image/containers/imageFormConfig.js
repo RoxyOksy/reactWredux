@@ -1,18 +1,18 @@
-export const getFormConfig =({ onAddImage }) => ({
+export const getFormConfig =({ onChangeImage, onEditState }) => ({
   layout: 'layout1',
   position4: {
     formFields: [
       {
         label: null,
         type: 'image',
-        onChange: onAddImage,
+        onChange: onChangeImage,
+        onConfirm: onEditState,
         params: {withConfirmation: true}
       },
     ]
   },
-
-
 });
+
 /*
 buttons: [
   {

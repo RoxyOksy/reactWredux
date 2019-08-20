@@ -14,7 +14,15 @@ export default function imageReducer (state = initialState, action) {
         images: [...images, action.payload]
       };
 
-    case 'ADD_IMAGE':
+    case 'DELETE_IMAGE_ITEM':
+      const newState = [...images.filter((image) => image.id !== action.payload)];
+
+      return {
+        ...state,
+        images: newState
+      };
+
+    case 'CHANGE_IMAGE':
       return {
         ...state,
         images:  images.map((image) => {
@@ -25,13 +33,15 @@ export default function imageReducer (state = initialState, action) {
         })
       };
 
-
-    case 'DELETE_IMAGE_ITEM':
-      const newState = [...images.filter((image) => image.id !== action.payload)];
-
+      case 'DELETE_IMAGE':
       return {
         ...state,
-        images: newState
+        images:  images.map((image) => {
+          if(image.id === action.payload.id) {
+            image.imageSrc = null
+          }
+          return image
+        })
       };
 
     default:

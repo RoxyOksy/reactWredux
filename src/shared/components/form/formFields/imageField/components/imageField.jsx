@@ -13,7 +13,7 @@ const ImageFieldComponent = (props) => {
     <Box className={styles.imageField}>
       { !imageSrc ?
         <FileUploaderField id={id} imageSrc={imageSrc} onSelect={onLoadPreview}/> :
-        <ImagePreviewField imageSrc={imageSrc} onDelete={onDelete}/> }
+        <ImagePreviewField id={id} imageSrc={imageSrc} onDelete={onDelete}/> }
     </Box>
 
 )};

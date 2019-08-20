@@ -17,11 +17,13 @@ export const deleteImageItem = (id) => {
   };
 };
 
-export const addImage = ({id, imageSrc}) => {
+export const changeImage = ({id, imageSrc}) => {
   return {
-    type: 'ADD_IMAGE',
+    type: 'CHANGE_IMAGE',
     payload: {id, imageSrc}
   };
 };
 
+export const toggleEditState = (id) => {
 
+};

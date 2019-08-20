@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ImagePreviewFieldComponent = ({imageSrc, onDelete}) => {
+const ImagePreviewFieldComponent = ({id, imageSrc, onDelete}) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ const ImagePreviewFieldComponent = ({imageSrc, onDelete}) => {
     <Box className={classes.imageBox}>
       <img src={imageSrc} alt="my_pic" className={classes.image}/>
     </Box>
-    <Button className={classes.button} onClick={onDelete} variant="outlined" >
+    <Button className={classes.button} onClick={(e) => onDelete( {id, imageSrc: null} )} variant="outlined" >
       <Clear color='primary'/>
     </Button>
   </Box>

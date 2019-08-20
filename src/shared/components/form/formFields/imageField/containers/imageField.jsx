@@ -1,25 +1,16 @@
-import React, {Component} from "react";
+import React from "react";
 import get from "lodash/get";
 
 import {ImageField} from "../components";
 
-export default class ImageFieldContainer extends Component {
+const ImageFieldContainer = ({data, handleChangeValue}) => {
+  return(
+    <ImageField id={get(data,'id',null)}
+                imageSrc={get(data,'imageSrc',null)}
 
-  handleDelete = () => {
-    this.setState({
-      isFileUploaderVisible: true,
-    });
-  };
-
-  render() {
-    const {data, handleChangeValue} = this.props;
-
-    return(
-      <ImageField id={get(data,'id',null)}
-                  imageSrc={get(data,'imageSrc',null)}
-
-                  onDelete={this.handleDelete}
-                  onLoadPreview={handleChangeValue} />
-    )
-  };
+                onDelete={handleChangeValue}
+                onLoadPreview={handleChangeValue} />
+  )
 };
+
+export default ImageFieldContainer

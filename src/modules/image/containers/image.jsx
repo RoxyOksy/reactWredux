@@ -5,16 +5,19 @@ import {FormBlock} from "shared/components";
 
 import {ImageView} from "../components/imageView";
 import mapStateToProps from '../selectors';
-import {addImageItem, deleteImageItem, addImage} from '../actions/action';
+import {addImageItem, deleteImageItem, changeImage, toggleEditState} from '../actions/action';
 
 import {getImageTableConfig} from "./imageTableConfig";
 import {getFormConfig as getImageFormConfig} from "./imageFormConfig";
 
 class ImageContainer extends Component {
     render() {
-      const {page, images, handleDeleteImageItem, handleAddImageItem, handleAddImage} = this.props;
+      const {page, images, handleDeleteImageItem, handleAddImageItem, handleChangeImage, handleEditState} = this.props;
 
-      const imageFormConfig = getImageFormConfig( {onAddImage: handleAddImage} );
+      const imageFormConfig = getImageFormConfig({
+        onChangeImage: handleChangeImage,
+        onEditState: handleEditState
+      });
 
       const imageTableConfig = getImageTableConfig({
         onAddImageItem: handleAddImageItem,
@@ -30,11 +33,12 @@ class ImageContainer extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        handleAddImageItem: () => dispatch(addImageItem()),
-        handleDeleteImageItem: (id) => dispatch(deleteImageItem(id)),
-        handleAddImage: ({id, imageSrc}) => dispatch(addImage({id, imageSrc})),
-    }
+  return {
+    handleAddImageItem: () => dispatch(addImageItem()),
+    handleDeleteImageItem: (id) => dispatch(deleteImageItem(id)),
+    handleChangeImage: ({id, imageSrc}) => dispatch(changeImage({id, imageSrc})),
+    handleEditState: (id) => dispatch(toggleEditState(id)),
+  }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer);
