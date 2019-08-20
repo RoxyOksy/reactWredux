@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 
 import {FormBlock} from "shared/components";
 
 import {UserView} from "../components/userView";
-import {addUser, deleteUser,
+import {addUser, deleteUser, confirmUser,
   editFormFieldValue, editFormFieldState} from '../actions/action';
 
 import mapStateToProps from '../selectors';
@@ -12,27 +12,61 @@ import mapStateToProps from '../selectors';
 import {getTableConfig as getUserTableConfig} from "./userTableConfig";
 import {getFormConfig as getUserFormConfig} from "./userFormConfig";
 
-const UserContainer = (props) => {
-  const {page, users} = props;
+class UserContainer extends Component {
+  state = {
+    isModalOpen: false
+  };
 
-  const userFormConfig = getUserFormConfig({
-    onEditValue: props.handleEditValue,
-    onEditState: props.handleEditState
-  });
 
-  const userTableConfig = getUserTableConfig({
-    onAddItem: props.handleAddUser,
-    onDeleteItem: props.handleDeleteUser,
+  render () {
+    const {page, users,
+      handleAddUser, handleDeleteUser,
+      handleEditValue, handleEditState, handleConfirmUser} = this.props;
 
-    getUserFormBlock: (props) => <FormBlock formConfig={userFormConfig} {...props} />
-  });
+    const userFormConfig = getUserFormConfig({
+      onEditValue: handleEditValue,
+      onEditState: handleEditState
+    });
 
-  return (
-    <UserView users={users}
-              page={page}
+    const changeModalState = () => {
+      this.setState((state) => {
+        return{
+          isModalOpen: !state.isModalOpen
+        }
+      });
+    };
 
-              tableConfig={userTableConfig}/>
-)};
+    const checkUserEditableState = (id) => {
+      users.filter((user) => {
+        if(user.id === id) {
+          return user.isUserEditableState ? changeModalState() : handleConfirmUser(id)
+        }
+      });
+    };
+
+    const userTableConfig = getUserTableConfig({
+      onAddUser: handleAddUser,
+      onDeleteUser: handleDeleteUser,
+      // onConfirmItem: props.handleConfirmUser,
+      onRequestToConfirmItem: checkUserEditableState,
+      // onRequestToConfirmItem: checkUserEditableState,
+
+      getUserFormBlock: (props) => <FormBlock formConfig={userFormConfig} {...props} />
+    });
+
+    return (
+      <UserView isModalOpen={this.state.isModalOpen}
+                users={users}
+                page={page}
+
+                tableConfig={userTableConfig}
+
+                changeModalState={changeModalState}
+                handleConfirmUser={handleConfirmUser}
+      />
+    )
+  }
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -40,6 +74,7 @@ const mapDispatchToProps = (dispatch) => {
     handleDeleteUser: (id) => dispatch(deleteUser(id)),
     handleEditValue: (id, fieldName, value) => dispatch(editFormFieldValue(id, fieldName, value)),
     handleEditState: (id, fieldName) => dispatch(editFormFieldState(id, fieldName)),
+    handleConfirmUser: (id) => dispatch(confirmUser(id)),
   }
 };
 

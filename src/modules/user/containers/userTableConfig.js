@@ -1,11 +1,11 @@
-import {Add, Clear} from 'shared/vendors';
+import {Add, Clear, Check} from 'shared/vendors';
 
 import {translate} from 'shared/helpers';
 
 import {COLORS} from 'constants';
 import {BUTTON_SHAPE} from 'constants';
 
-export const getTableConfig = ({ onDeleteItem, onAddItem, getUserFormBlock }) => ({
+export const getTableConfig = ({ onAddUser, onDeleteUser, onRequestToConfirmItem, getUserFormBlock }) => ({
   headColumns: [
     { id: 'counter', type: 'counterCell', label: translate('TABLE.COLUMNS.COUNTER') },
     { id: 'content', type: 'contentCell', label:translate('TABLE.COLUMNS.USER_INFO'), params: {
@@ -15,7 +15,17 @@ export const getTableConfig = ({ onDeleteItem, onAddItem, getUserFormBlock }) =>
       buttons: [
         {
           fullWidth: true,
-          onClick: onDeleteItem,
+          onClick: onRequestToConfirmItem,
+          label: null,
+          icon: Check,
+          background: COLORS.PRIMARY_COLOR,
+          color: COLORS.PRIMARY_CONTRAST_COLOR,
+          size: 'small',
+          shape: BUTTON_SHAPE.RECTANGLE
+        },
+        {
+          fullWidth: true,
+          onClick: onDeleteUser,
           label: null,
           icon: Clear,
           background: COLORS.SECONDARY_COLOR,
@@ -28,7 +38,7 @@ export const getTableConfig = ({ onDeleteItem, onAddItem, getUserFormBlock }) =>
   ],
   tableWithAddItemButton: {
     fullWidth: false,
-    onClick: onAddItem,
+    onClick: onAddUser,
     label: translate('BUTTON.ADD'),
     icon: Add,
     background: COLORS.PRIMARY_COLOR,

@@ -8,7 +8,7 @@ const addUser = () => {
     position: {value: '', isEditable: true},
     gender: {value: '', isEditable: true},
     avatar: {value: '', isEditable: true},
-    isUserEditableState: true
+    isUserEditableState: false
   };
 
   return {
@@ -22,6 +22,13 @@ const deleteUser = (id) => {
     type: 'DELETE_USER',
     payload: id
   };
+};
+
+const confirmUser = (id) => {
+  return {
+    type: 'CONFIRM_USER',
+    payload: id
+  }
 };
 
 const editFormFieldValue = (id, fieldName, value) => {
@@ -41,6 +48,7 @@ const editFormFieldState = (id, fieldName) => {
 export {
   addUser,
   deleteUser,
+  confirmUser,
   editFormFieldValue,
   editFormFieldState
 }

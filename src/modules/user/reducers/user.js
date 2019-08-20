@@ -11,20 +11,36 @@ export default function userReducer(state = initialState, action) {
 
   const fieldName = get(action, 'payload.fieldName', '');
 
-  const getUserEditableState = () => {
-    return {
-      ...state,
-      users: users.map((user) => {
-        const arrayUserHasEditableField = filter(user, (field) => field.value && field.isEditable===true);
+  // const getUserEditableState = () => {
+    // return {
+    //   ...state,
+    //   users: users.map((user) => {
+    //     if(filter(user, (field) => field.value && field.isEditable===true).length!== 0) {
+    //       user.isUserEditableState = true;
+    //     } else {
+    //       user.isUserEditableState = false;
+    //     }
+    //     return user
+    //   })
+    // };
+  // }
 
-        if(arrayUserHasEditableField.length !== 0) {
-          user.isUserEditableState = true
-        } else {
-          user.isUserEditableState = false
-        }
-        return user
-      })
-    };
+  const getUserEditableState = (user) => {
+    // for (let field in user) {
+    //   if(user[field].value && user[field].isEditable===true){
+    //     user.isUserEditableState = true;
+    //     break;
+    //   } else {
+    //     user.isUserEditableState = false;
+    //   }
+    // }
+
+      if(filter(user, (field) => field.value && field.isEditable===true).length!== 0) {
+        user.isUserEditableState = true;
+      } else {
+        user.isUserEditableState = false;
+      };
+
   };
 
   switch (action.type) {
@@ -42,14 +58,29 @@ export default function userReducer(state = initialState, action) {
         users: newState
       };
 
+    case 'CONFIRM_USER' :
+      return {
+        ...state,
+        users: users.map((user) => {
+          if(user.id === action.payload) {
+            filter(user, (field) => {
+              if(field.isEditable!==undefined) {
+                field.isEditable = false
+              }
+            })
+          }
+          return user
+        })
+      };
+
     case 'EDIT_FORM_FIELD_VALUE':
       return {
         ...state,
         users: users.map((user) => {
           if(user.id === action.payload.id) {
-            user[fieldName].value = action.payload.value
+            user[fieldName].value = action.payload.value;
+            getUserEditableState(user);
           }
-          getUserEditableState();
           return user
         })
       };
@@ -59,9 +90,9 @@ export default function userReducer(state = initialState, action) {
         ...state,
         users: users.map((user) => {
           if(user.id === action.payload.id) {
-            user[fieldName].isEditable = !user[fieldName].isEditable
+            user[fieldName].isEditable = !user[fieldName].isEditable;
+            getUserEditableState(user);
           }
-          getUserEditableState();
           return user
         })
       };

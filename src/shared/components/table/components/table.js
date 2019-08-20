@@ -8,7 +8,7 @@ import {getSorting, stableSort} from 'shared/helpers';
 
 import {useTableStyle} from './table.style';
 
-const TableComponent =  ({ items, onCreateSort, orderBy, addItemButton, order, cellComponents, tableConfig:{headColumns, tableWithAddItemButton} }) => {
+const TableComponent =  ({ items, onCreateSort, orderBy, addItemButton, order, cellComponents, tableConfig: {headColumns, tableWithAddItemButton} }) => {
   const classes = useTableStyle();
 
     return (

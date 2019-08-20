@@ -3,11 +3,9 @@ import get from "lodash/get";
 
 import {Box} from "shared/vendors";
 
-import {getFormField, getFormToggleField} from "../formBlock";
+import {getFormToggleField} from "../formBlock";
 
 const Layout1Component = (props) => {
-
-  console.log('data', props.data);
   return (
     <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} width={1} flex={1} >
       {
@@ -29,7 +27,7 @@ const Layout1Component = (props) => {
         <Box display={'flex'} flexDirection={'column'} width={1} flex={1} >
           { get(props,'formConfig.position3.formFields',[])
          //   .map((formField)=> getFormField( {formField, data:props.data} )) }
-            .map((formField)=> getFormField( {formField, data: props.data} )) }
+            .map((formField)=> getFormToggleField( {formField, data: props.data} )) }
         </Box>
       }
       {

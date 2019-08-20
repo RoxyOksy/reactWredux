@@ -44,7 +44,9 @@ export const getFormField = ({formField, data}) => {
       />;
 
     case 'radio' :
-      return <RadioField id={id}
+
+      return <RadioField key={key}
+                         id={id}
                          name={name}
                          label={label}
                          value={value}
@@ -56,7 +58,6 @@ export const getFormField = ({formField, data}) => {
     case 'text' :
     case 'password':
     default:
-
       return <InputField key={key}
                          id={id}
                          type={type}
@@ -79,16 +80,15 @@ export const getFormToggleField = (props) => {
   const id = get(props,'data.id', '');
   const label = get(props,'formField.label','');
 
-  return isToggleField ?
-    <ToggleEditor id={id}
-                  fieldName={fieldName}
-                  isEditState={isEditState}
-                  handleChangeEditState={handleChangeEditState}
+  return isToggleField ? <ToggleEditor id={id}
+                                      fieldName={fieldName}
+                                      isEditState={isEditState}
+                                      handleChangeEditState={handleChangeEditState}
 
-      InputField={ () => getFormField(props) }
-      ConfirmationButton={ (props) => <Button onClick={props.onClick}><Check/></Button> }
-      Typography={ (props) => <Typography onClick={props.onClick}>{label}: {value}</Typography> }
-    /> : getFormField(props)
+                          InputField={ () => getFormField(props) }
+                          ConfirmationButton={ (props) => <Button onClick={props.onClick}><Check/></Button> }
+                          Typography={ (props) => <Typography onClick={props.onClick}>{label}: {value}</Typography> }
+                        /> : getFormField(props)
 };
 
 const getLayout = ({formConfig, data})=>{
