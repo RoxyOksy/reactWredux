@@ -11,36 +11,12 @@ export default function userReducer(state = initialState, action) {
 
   const fieldName = get(action, 'payload.fieldName', '');
 
-  // const getUserEditableState = () => {
-    // return {
-    //   ...state,
-    //   users: users.map((user) => {
-    //     if(filter(user, (field) => field.value && field.isEditable===true).length!== 0) {
-    //       user.isUserEditableState = true;
-    //     } else {
-    //       user.isUserEditableState = false;
-    //     }
-    //     return user
-    //   })
-    // };
-  // }
-
   const getUserEditableState = (user) => {
-    // for (let field in user) {
-    //   if(user[field].value && user[field].isEditable===true){
-    //     user.isUserEditableState = true;
-    //     break;
-    //   } else {
-    //     user.isUserEditableState = false;
-    //   }
-    // }
-
-      if(filter(user, (field) => field.value && field.isEditable===true).length!== 0) {
-        user.isUserEditableState = true;
-      } else {
-        user.isUserEditableState = false;
-      };
-
+    if(filter(user, (field) => field.value && field.isEditable===true).length!== 0) {
+      user.isUserEditableState = true;
+    } else {
+      user.isUserEditableState = false;
+    };
   };
 
   switch (action.type) {

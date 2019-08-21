@@ -9,6 +9,7 @@ import {Button} from "../../../../../form/button";
     get(params,'buttons',[]).map((buttonData) => {
     return <Button {...buttonData} onClick={ get(buttonData,'onClick',() => null).bind(null, get(data,'id'))} key={uid()}/>
   })
+  )
 };
 
 export default ControlCellComponent
