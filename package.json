@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.2.1",
     "ag-grid-community": "^21.1.0",
     "ag-grid-react": "^21.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "flow-bin": "^0.105.2",
